@@ -10,7 +10,7 @@ AD     = avrdude
 # GCC MCU
 MCU      = atmega328p
 DEF_FREQ = 16000000
-DEF_MCU  = AVR_ATmega328p
+DEF_MCU  = AVR_ATmega328P
 # Avrdude part name
 PART = m328p
 # Avrdude programmer name
@@ -20,12 +20,12 @@ PORT = usb
 # Project name
 PROJ = ws2812-controller
 # Source files
-SRC  = system.cpp main.cpp
+SRC  = device/lcd.cpp system.cpp main.cpp
 
 CPPFLAGS  = -I. -DF_CPU=$(DEF_FREQ)UL -D__$(DEF_MCU)__
-CFLAGS    = -c -ggdb -Os -mmcu=$(MCU)
-CXXFLAGS  = -c -ggdb -Os -std=c++14 -fno-exceptions -mmcu=$(MCU)
-LDFLAGS   = -ggdb -Og -mmcu=$(MCU)
+CFLAGS    = -c -ggdb -O2 -mmcu=$(MCU)
+CXXFLAGS  = -c -ggdb -O2 -std=c++14 -fno-exceptions -mmcu=$(MCU)
+LDFLAGS   = -ggdb -O2 -mmcu=$(MCU)
 LDLIBS    =
 SIZEFLAGS = -C --mcu=$(MCU)
 
