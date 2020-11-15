@@ -1,4 +1,4 @@
-# Makefile for embedded part of WS2812B Christmas lights
+# Makefile for embedded part of WS2812B Controller
 
 CC     = avr-gcc
 CXX    = avr-g++
@@ -20,7 +20,7 @@ PORT = usb
 # Project name
 PROJ = ws2812-controller
 # Source files
-SRC  = device/lcd.cpp device/output.cpp system.cpp main.cpp
+SRC  = device/lcd.cpp device/output.cpp device/keypad.cpp system.cpp main.cpp
 
 CPPFLAGS  = -I. -DF_CPU=$(DEF_FREQ)UL -D__$(DEF_MCU)__
 CFLAGS    = -c -ggdb -O2 -mmcu=$(MCU)
@@ -37,7 +37,9 @@ DEP = $(OBJ:.o=.d)
 
 all: $(PROJ).elf $(PROJ).hex $(PROJ).lss stats
 
+ifeq ($(findstring clean,$(MAKECMDGOALS)),)
 -include $(DEP)
+endif
 
 stats: $(PROJ).elf
 	$(SIZE) $(SIZEFLAGS) $<
