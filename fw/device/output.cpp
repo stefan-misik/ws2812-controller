@@ -11,6 +11,9 @@ void Output::initialize()
     DDRD |= ((1 << DDD3) | (1 << DDD5) | (1 << DDD6));
     DDRB |= (1 << DDB0);
 
+    // Disable power reduction
+    PRR &= ~((1 << PRTIM0));
+
     // Disable timer 0 interrupts
     TIMSK0 &= ~((1 << OCIE0B) | (1 << OCIE0A) | (1 << TOIE0));
 

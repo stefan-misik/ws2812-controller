@@ -3,8 +3,6 @@
 #include <avr/pgmspace.h>
 #include <avr/io.h>
 
-#include <util/delay.h>
-
 namespace device
 {
 
@@ -63,83 +61,76 @@ void Lcd::initialize()
 {
     LcdIo::initialize();
 
-    // Reset serial interface
-    LcdIo::release();
-
-    setExtendedOption(ExtendedOption::CONTRAST, 65);
-    setExtendedOption(ExtendedOption::TEMPERATURE_COEFICIENT, 0);
-    setExtendedOption(ExtendedOption::BIAS, 4);  // LCD bias mode 1:48
+    update_parameters_ = 0;
+    setParameter(Parameter::CONTRAST, 65);
+    setParameter(Parameter::TEMPERATURE_COEFICIENT, 0);
+    setParameter(Parameter::BIAS, 3);  // LCD bias mode 1:48
 
     LcdIo::activate();
     LcdIo::setCommand();
-
-    // Normal operation
-    LcdIo::transmit(0x0C);
-
-    LcdIo::release();
-
-    setPosition(0, 0);
-
-    LcdIo::activate();
-    LcdIo::setData();
-
-    // Clear the display
-    for(int i = 0; i < 504; ++i)
-    {
-        LcdIo::transmit(0x00);
-    }
-
-    LcdIo::release();
-
-    setPosition(0, 0);
-}
-
-void Lcd::test()
-{
-    LcdIo::activate();
-    LcdIo::setCommand();
-
-    // All display segments on
-    LcdIo::transmit(0x09);
-
-    _delay_ms(1000);
-
-    // Normal operation
-    LcdIo::transmit(0x0C);
-
+    LcdIo::transmit(0x0C);  // Normal operation
     LcdIo::release();
 }
 
-void Lcd::setExtendedOption(ExtendedOption option, uint8_t value)
+void Lcd::update()
 {
     static const uint8_t bases[] PROGMEM = {0x04, 0x10, 0x80};
     static const uint8_t masks[] PROGMEM = {0x03, 0x07, 0x7F};
 
     LcdIo::activate();
-    LcdIo::setCommand();
 
-    LcdIo::transmit(0x21); // Extended commands
-    // Write command
-    LcdIo::transmit((pgm_read_byte(bases + static_cast<uint8_t>(option))) |
-        (value & (pgm_read_byte(masks + static_cast<uint8_t>(option)))));
+    LcdIo::setCommand();
+    // If requested, update extended parameters
+    if (0 != update_parameters_)
+    {
+        LcdIo::transmit(0x21); // Extended commands
+        uint8_t update = update_parameters_;
+        update_parameters_ = 0;
+        for (uint8_t i = 0; i < PARAMETER_COUNT; ++i)
+        {
+            if (update & 1)
+            {
+                LcdIo::transmit((pgm_read_byte(bases + i)) |
+                    (parameters_[i] & (pgm_read_byte(masks + i))));
+            }
+            update >>= 1;
+        }
+    }
+
+    // Move "cursor" to the position (0, 0)
     LcdIo::transmit(0x20); // Basic commands
+    LcdIo::transmit(0x40 | (0 & 0x07));  // Set Y = 0
+    LcdIo::transmit(0x80 | (0 & 0x7F));  // Set X = 0
+
+    // Start transmitting data
+    LcdIo::setData();
+    for (auto c: frame_buffer_)
+    {
+        LcdIo::transmit(c);
+    }
 
     LcdIo::release();
 }
 
-void Lcd::setPosition(uint8_t column, uint8_t row)
+void Lcd::setParameter(Parameter parameter, uint8_t value)
 {
-    // Enable serial interface
-    LcdIo::activate();
-    // Set command mode
-    LcdIo::setCommand();
-
-    // lcd_transmit(0x20);  // Basic commands - already in this mode
-    LcdIo::transmit(0x40 | (row & 0x07));
-    LcdIo::transmit(0x80 | (column & 0x7F));
-
-    // Release serial interface
-    LcdIo::release();
+    uint8_t parameter_pos = static_cast<uint8_t>(parameter);
+    if (parameter_pos < PARAMETER_COUNT)
+    {
+        if (INVALID_PARAMETER_VALUE == value)
+        {
+            update_parameters_ &= ~(1 << parameter_pos);
+        }
+        else
+        {
+            update_parameters_ |= (1 << parameter_pos);
+            parameters_[parameter_pos] = value;
+        }
+    }
 }
+
+uint8_t Lcd::frame_buffer_[504];
+uint8_t Lcd::update_parameters_;
+uint8_t Lcd::parameters_[PARAMETER_COUNT];
 
 }  // namespace device

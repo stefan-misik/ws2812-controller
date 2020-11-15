@@ -20,7 +20,9 @@ PORT = usb
 # Project name
 PROJ = ws2812-controller
 # Source files
-SRC  = device/lcd.cpp device/output.cpp device/keypad.cpp system.cpp main.cpp
+SRC  = device/lcd.cpp device/output.cpp device/keypad.cpp  \
+       device/time_service.cpp  \
+	   system.cpp main.cpp
 
 CPPFLAGS  = -I. -DF_CPU=$(DEF_FREQ)UL -D__$(DEF_MCU)__
 CFLAGS    = -c -ggdb -O2 -mmcu=$(MCU)

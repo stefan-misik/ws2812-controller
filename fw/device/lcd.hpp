@@ -12,32 +12,49 @@ namespace device
 
 class Lcd
 {
+private:
+    static constexpr uint8_t PARAMETER_COUNT = 3;
 public:
     /** @brief LCD extended configuration parameters */
-    enum class ExtendedOption
+    enum class Parameter: uint8_t
     {
         TEMPERATURE_COEFICIENT,
         BIAS,
         CONTRAST
     };
 
+    /** @brief Invalid value of the extended option */
+    static constexpr uint8_t INVALID_PARAMETER_VALUE = 0xff;
+
     /** @brief Initialize LCD peripherals */
     static void initialize();
 
-    /** @brief Test the LCD */
-    static void test();
+    /** @brief Update the parameters and the contents of the display */
+    static void update();
+
+    /**
+     * @brief Set an LCD parameter to be updated during next update phase
+     * 
+     * @param option Option to be configured
+     * @param parameter Value of the option (INVALID_PARAMETER_VALUE to
+     *        cancel the pending update)
+     */
+    static void setParameter(Parameter parameter, uint8_t value);
+
+    /**
+     * @brief Get the LCD frame buffer
+     * 
+     * @return Pointer to the beginnig of the frame buffer
+     */
+    static uint8_t * frameBuffer()
+    {
+        return frame_buffer_;
+    }
 
 private:
-    /**
-     * \brief Function to set LCD's extended configuration options
-     *
-     * \param option Extended configuration to change
-     * \param value New value of the selected configuration
-     */
-    static void setExtendedOption(ExtendedOption option, uint8_t value);
-
-    static void setPosition(uint8_t column, uint8_t row);
-
+    static uint8_t frame_buffer_[504];
+    static uint8_t update_parameters_;
+    static uint8_t parameters_[PARAMETER_COUNT];
 };
 
 }  // namespace device
