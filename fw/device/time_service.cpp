@@ -17,6 +17,24 @@ void TimeService::initialize()
 
     // Disable power reduction
     PRR &= ~((1 << PRTIM1));
+
+    // Firstly, stop the timer
+    TCCR1B &= ~((1 << CS12) | (1 << CS11) | (1 << CS10));
+
+    // Disable all interrupts, except overflow
+    TIMSK1 = (0 << ICIE1) | (0 << OCIE1B) | (1 << OCIE1A) | (0 << TOIE1);
+
+    // Overflow every 10 milliseconds: 250 kHz / 2500 = 100 Hz
+    OCR1A = 2499;
+
+    // Disable compare outputs, set CTC mode, frequency 16 MHz / 64 = 250 kHz
+    TCCR1A = (0 << COM1A1) | (0 << COM1A0) |  // Disable OCA
+            (0 << COM1B1) | (0 << COM1B0) |  // Disable OCB
+            (0 << WGM11) | (0 << WGM10);  // Start setting up CTC mode
+    TCCR1C = (0 << FOC1A) | (0 << FOC1B);  // No force output
+    TCCR1B = (0 << ICNC1) | (0 << ICES1) |  // Disable input capture processing
+            (0 << WGM13) | (1 << WGM12) |  // Finish setting up CTC mode
+            (0 << CS12) | (1 << CS11) | (1 << CS10);  // Clock select
 }
 
 }  // namespace device
