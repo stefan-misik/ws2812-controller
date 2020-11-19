@@ -7,38 +7,30 @@ void ButtonFilter::updateButton(bool button_state)
 {
     if (button_state)
     {
-        countUp();
+        // Count up
+        if (counter_ < NEXT_REPEAT_THRESHOLD)
+        {
+            ++counter_;
+        }
+        else
+        {
+            counter_ = REPEAT_THRESHOLD;
+        }
     }
     else
     {
-        countDown();
+        // Count down
+        if (counter_ > PRESS_THRESHOLD)
+        {
+            counter_ = PRESS_THRESHOLD;
+        }
+        else if (counter_ > 0)
+        {
+            --counter_;
+        }
     }
 
     updateState();
-}
-
-void ButtonFilter::countUp()
-{
-    if (counter_ < NEXT_REPEAT_THRESHOLD)
-    {
-        ++counter_;
-    }
-    else
-    {
-        counter_ = REPEAT_THRESHOLD;
-    }
-}
-
-void ButtonFilter::countDown()
-{
-    if (counter_ > PRESS_THRESHOLD)
-    {
-        counter_ = PRESS_THRESHOLD;
-    }
-    else if (counter_ > 0)
-    {
-        --counter_;
-    }
 }
 
 void ButtonFilter::updateState()

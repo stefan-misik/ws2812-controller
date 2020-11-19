@@ -30,6 +30,13 @@ public:
         state_(0)
     { }
 
+    /** @brief Reset the button filter */
+    void reset()
+    {
+        counter_ = 0;
+        state_ = 0;
+    }
+
     /**
      * @brief Update the state of the button filter with current state of the
      *        button
@@ -59,8 +66,6 @@ private:
     uint8_t counter_;
     uint8_t state_;
 
-    void countUp();
-    void countDown();
     void updateState();
 };
 

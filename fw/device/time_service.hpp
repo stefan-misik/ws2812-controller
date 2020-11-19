@@ -19,14 +19,14 @@ public:
     /**
      * @brief Get the current time
      *
-     * @return Time in 8 milliseconds
+     * @return Time in 2.5 milliseconds
      */
     static uint8_t getTime()
     {
         return current_time_;
     }
 
-    /** @brief Current time in 8 milliseconds */
+    /** @brief Current time in 2.5 milliseconds */
     static volatile uint8_t current_time_;
 };
 
