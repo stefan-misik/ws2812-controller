@@ -88,7 +88,10 @@ struct KeypadSettings
     uint8_t r3;
 };
 
-constexpr KeypadSettings KEYPAD = { 2, 1, 0,   3, 4, 5, 6 };
+// Membrane keypad
+// constexpr KeypadSettings KEYPAD = { 2, 1, 0,   3, 4, 5, 6 };
+
+constexpr KeypadSettings KEYPAD = { 4, 6, 2,   3, 1, 0, 5 };
 
 
 }  // namespace
