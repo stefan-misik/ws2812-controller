@@ -1,6 +1,7 @@
 #include "device/time_service.hpp"
 #include "device/output.hpp"
 #include "device/lcd.hpp"
+#include "device/led_controller.hpp"
 
 #include "system/input.hpp"
 
@@ -8,11 +9,13 @@
 
 #include <stdint.h>
 
+
 int main(void)
 {
     device::TimeService::initialize();
     device::Output::initialize();
     device::Lcd::initialize();
+    device::LedController::initialize();
 
     system::Input::initialize();
 
@@ -67,6 +70,12 @@ int main(void)
                 }
 
                 device::Lcd::update();
+                device::LedController::update(0,
+                        (const uint8_t *)"\x77\x00\x00\x00\x77\x00\x00\x00\x77\x55\x55\x55",
+                        12);
+                device::LedController::update(1,
+                        (const uint8_t *)"\x00\x77\x00\x77\x00\x00\x00\x00\x77\x55\x55\x55",
+                        12);
                 break;
             }
         }

@@ -21,7 +21,7 @@ PORT = usb
 PROJ = ws2812-controller
 # Source files
 SRC  = device/lcd.cpp device/output.cpp device/keypad.cpp  \
-       device/time_service.cpp  \
+       device/time_service.cpp device/led_controller.cpp  \
        system/input.cpp  \
        tools/timer.cpp tools/button_filter.cpp  \
        system.cpp main.cpp
