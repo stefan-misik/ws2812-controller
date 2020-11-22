@@ -24,6 +24,9 @@ int main(void)
 
     device::Lcd::update();
 
+    device::Output::setOut1(true);
+    device::Output::setOut2(true);
+
     tools::PeriodicRoutine update_timer;
     update_timer.setPeriod(1);
     update_timer.resetTimerAt(0);

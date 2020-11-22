@@ -8,7 +8,7 @@ namespace device
 void Output::initialize()
 {
     // Set output direction on pins
-    DDRD |= ((1 << DDD3) | (1 << DDD5) | (1 << DDD6));
+    DDRD |= ((1 << DDD4) | (1 << DDD5) | (1 << DDD6));
     DDRB |= (1 << DDB0);
 
     // Disable power reduction
@@ -66,11 +66,11 @@ void Output::setOut2(bool turn_on)
 {
     if (turn_on)
     {
-        PORTD |= (1 << PORTD3);
+        PORTD |= (1 << PORTD4);
     }
     else
     {
-        PORTD &= ~(1 << PORTD3);
+        PORTD &= ~(1 << PORTD4);
     }
 }
 
