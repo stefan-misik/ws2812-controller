@@ -21,7 +21,7 @@ CXXFLAGS     = -fno-exceptions
 
 # Tests of main functionality
 TEST_SRC__main     =   \
-    $(call tested_source,tools/queue.cpp)
+    $(call tested_source,tools/generic_queue.cpp)
 TEST_GCOVR__main   = -f ../fw
 TEST_INCLUDE__main = ../fw
 TEST_ARGS__main    =
