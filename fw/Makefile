@@ -1,5 +1,10 @@
 # Makefile for embedded part of WS2812B Controller
 
+# First define common directory path and intended version
+COMMON_DIR = ../common
+# Include common build environment definitions
+include $(COMMON_DIR)/environment.mk
+
 CC     = avr-gcc
 CXX    = avr-g++
 OBJCPY = avr-objcopy
@@ -8,15 +13,14 @@ SIZE   = avr-size
 AD     = avrdude
 
 # GCC MCU
-MCU      = atmega328p
-DEF_FREQ = 16000000
-DEF_MCU  = AVR_ATmega328P
+DEF_FREQ = 20000000
 # Avrdude part name
 PART = m328p
 # Avrdude programmer name
 PROG = usbasp
 # Avrdude port name
 PORT = usb
+
 # Project name
 PROJ = ws2812-controller
 # Source files
@@ -25,51 +29,39 @@ SRC  = device/lcd.cpp device/output.cpp device/keypad.cpp  \
        system/input.cpp  \
        tools/timer.cpp tools/button_filter.cpp  \
        system.cpp main.cpp
+DEFINE   = F_CPU=$(DEF_FREQ)UL
+INCLUDE  = .
+LDLIBS   =
+CFLAGS   = -std=c99 -ggdb -O2
+CXXFLAGS = -std=c++11 -ggdb -O2 -fno-exceptions
+LDFLAGS  = -ggdb -O2
+EXTDEP   =
 
-CPPFLAGS  = -I. -DF_CPU=$(DEF_FREQ)UL -D__$(DEF_MCU)__
-CFLAGS    = -c -ggdb -O2 -mmcu=$(MCU)
-CXXFLAGS  = -c -ggdb -O2 -std=c++14 -fno-exceptions -mmcu=$(MCU)
-LDFLAGS   = -ggdb -O2 -mmcu=$(MCU)
-LDLIBS    =
-SIZEFLAGS = -C --mcu=$(MCU)
 
 ################################################################################
-OBJ = $(addsuffix .o, $(basename $(SRC)))
-DEP = $(OBJ:.o=.d)
+$(call module_section_begin)
 
-.PHONY: all clean stats prog fuses
+# AVR Atmega 328P
+AVR_MODEL = atmega328p
+$(call load_module, avr)
 
-all: $(PROJ).elf $(PROJ).hex $(PROJ).lss stats
 
-ifeq ($(findstring clean,$(MAKECMDGOALS)),)
--include $(DEP)
-endif
+################################################################################
+# Include common build rules
+$(call load_rules)
 
-stats: $(PROJ).elf
-	$(SIZE) $(SIZEFLAGS) $<
+.PHONY: stats prog fuses
 
-prog: $(PROJ).hex
+stats: $(OUT)
+	$(SIZE) -C --mcu=$(AVR_MODEL) $<
+
+prog: $(basename $(OUT)).hex
 	$(AD) -c $(PROG) -p $(PART) -P $(PORT) -U flash:w:$<:i
 
 fuses:
 	$(AD) -c $(PROG) -p $(PART) -P $(PORT) -B 10 -D             \
 	    -U lfuse:w:0xFF:m -U hfuse:w:0xDE:m -U efuse:w:0xFF:m
 
-$(PROJ).elf: $(OBJ)
-	$(CXX) $(LDFLAGS) $(OBJ) -o $@ $(LOADLIBES) $(LDLIBS)
+postbuild: stats
 
-$(PROJ).hex: $(PROJ).elf
-	$(OBJCPY) -R .eeprom -O ihex $< $@
-
-$(PROJ).lss: $(PROJ).elf
-	$(OBJDMP) -h -S $<  > $@
-
-%.d: %.c
-	$(CC) -MM $(CPPFLAGS) $(CFLAGS) $< -MF $@
-
-%.d: %.cpp
-	$(CXX) -MM $(CPPFLAGS) $(CXXFLAGS) $< -MF $@
-
-clean:
-	$(RM) $(PROJ).elf $(PROJ).hex $(PROJ).lss $(OBJ) $(DEP)
 

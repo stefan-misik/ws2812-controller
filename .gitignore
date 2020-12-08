@@ -16,6 +16,9 @@
 # Static stack usage analysis results
 *.su
 
+# Object file lists
+*.objlst
+
 # Symbol map
 *.map
 
@@ -30,6 +33,11 @@
 
 # Ignore doxygen outputs
 */doxygen/*.files
+
+# Cog-generated files
+*.cogout.c
+*.cogout.cpp
+*.cogout.inc
 
 # Ignore test coverage data
 *.gcno

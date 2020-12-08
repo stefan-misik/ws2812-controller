@@ -12,7 +12,7 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="${ProjName}" buildProperties="" description="" id="de.innot.avreclipse.toolchain.winavr.base.1235762793" name="Default" optionalBuildProperties="org.eclipse.cdt.docker.launcher.containerbuild.property.volumes=,org.eclipse.cdt.docker.launcher.containerbuild.property.selectedvolumes=" parent="org.eclipse.cdt.build.core.emptycfg">
+				<configuration artifactName="${ProjName}" buildProperties="" description="" id="de.innot.avreclipse.toolchain.winavr.base.1235762793" name="Default" optionalBuildProperties="org.eclipse.cdt.docker.launcher.containerbuild.property.selectedvolumes=,org.eclipse.cdt.docker.launcher.containerbuild.property.volumes=" parent="org.eclipse.cdt.build.core.emptycfg">
 					<folderInfo id="de.innot.avreclipse.toolchain.winavr.base.1235762793.1098641349" name="/" resourcePath="">
 						<toolChain id="de.innot.avreclipse.toolchain.winavr.base.1416849820" name="AVR-GCC Toolchain" superClass="de.innot.avreclipse.toolchain.winavr.base">
 							<option id="de.innot.avreclipse.toolchain.options.toolchain.objcopy.flash.75236950" name="Generate HEX file for Flash memory" superClass="de.innot.avreclipse.toolchain.options.toolchain.objcopy.flash"/>
@@ -21,7 +21,7 @@
 							<option id="de.innot.avreclipse.toolchain.options.toolchain.size.139396054" name="Print Size" superClass="de.innot.avreclipse.toolchain.options.toolchain.size"/>
 							<option id="de.innot.avreclipse.toolchain.options.toolchain.avrdude.1959374723" name="AVRDude" superClass="de.innot.avreclipse.toolchain.options.toolchain.avrdude"/>
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="de.innot.avreclipse.targetplatform.avr.603445883" name="AVR Cross-Target" osList="all" superClass="de.innot.avreclipse.targetplatform.avr"/>
-							<builder id="de.innot.avreclipse.target.builder.winavr.base.1437464358" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="AVR GNU Make Builder" superClass="de.innot.avreclipse.target.builder.winavr.base"/>
+							<builder command="gmake" id="de.innot.avreclipse.target.builder.winavr.base.1437464358" incrementalBuildTarget="all DBG=no" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="AVR GNU Make Builder" superClass="de.innot.avreclipse.target.builder.winavr.base"/>
 							<tool id="de.innot.avreclipse.tool.assembler.winavr.base.1126976626" name="AVR Assembler" superClass="de.innot.avreclipse.tool.assembler.winavr.base">
 								<inputType id="de.innot.avreclipse.tool.assembler.input.241330652" superClass="de.innot.avreclipse.tool.assembler.input"/>
 							</tool>
