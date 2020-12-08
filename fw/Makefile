@@ -27,7 +27,7 @@ PROJ = ws2812-controller
 SRC  = device/lcd.cpp device/output.cpp device/keypad.cpp  \
        device/time_service.cpp device/led_controller.cpp  \
        system/input.cpp  \
-       tools/timer.cpp tools/button_filter.cpp  \
+       tools/timer.cpp tools/button_filter.cpp tools/queue.cpp \
        system.cpp main.cpp
 DEFINE   = F_CPU=$(DEF_FREQ)UL
 INCLUDE  = .
