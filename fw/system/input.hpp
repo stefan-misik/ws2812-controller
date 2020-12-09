@@ -5,10 +5,9 @@
 #ifndef SYSTEM_INPUT_HPP_
 #define SYSTEM_INPUT_HPP_
 
-#include "device/keypad.hpp"
+#include "system/common.hpp"
+#include "system/event_queue.hpp"
 #include "tools/button_filter.hpp"
-
-#include <stdint.h>
 
 namespace system
 {
@@ -19,18 +18,36 @@ namespace system
 class Input
 {
 public:
-    /** @brief Initialize the hardware and input component */
-    static void initialize();
+    Input(EventQueue * receiver):
+        receiver_(receiver)
+    {
+        reset();
+    }
+
+    /** @brief Reset all the buttons */
+    void reset();
 
     /**
-     * @brief Read the states of the individual keys
+     * @brief Update the keypad state
      *
-     * @param current_column Currently selected key column (value 0 through 2)
-     * @param next_column Key column to be selected next (value 0 through 2)
+     * This method is to be called periodically with new button states.
+     *
+     * @param column_number Number of the column to be updated
+     * @param keys States of the keys in the column
      */
-    static void read(uint8_t current_column, uint8_t next_column);
+    void update(uint8_t column, uint8_t keys);
 
-    static tools::ButtonFilter buttons_[12];
+    /**
+     * @brief Check whether given key is pressed
+     *
+     * @param key Character of the key to be checked
+     * @return The key is being held in pressed state
+     */
+    bool isPressed(char key) const;
+
+private:
+    tools::ButtonFilter keys_[12];
+    EventQueue * receiver_;
 };
 
 

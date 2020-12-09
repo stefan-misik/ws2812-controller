@@ -26,7 +26,7 @@ PROJ = ws2812-controller
 # Source files
 SRC  = device/lcd.cpp device/output.cpp device/keypad.cpp  \
        device/time_service.cpp device/led_controller.cpp  \
-       system/input.cpp  \
+       system/input.cpp system/event_queue.cpp system/core.cpp  \
        tools/timer.cpp tools/button_filter.cpp tools/generic_queue.cpp \
        system.cpp main.cpp
 DEFINE   = F_CPU=$(DEF_FREQ)UL
