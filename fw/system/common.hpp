@@ -6,6 +6,7 @@
 #define SYSTEM_COMMON_HPP_
 
 #include <stdint.h>
+#include <stddef.h>
 
 namespace system
 {

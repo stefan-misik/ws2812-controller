@@ -50,7 +50,7 @@ void Output::setBacklight(uint8_t brightness)
     OCR0B = (255 - brightness);
 }
 
-void Output::setOut1(bool turn_on)
+void Output::setOut1(uint8_t turn_on)
 {
     if (turn_on)
     {
@@ -62,7 +62,7 @@ void Output::setOut1(bool turn_on)
     }
 }
 
-void Output::setOut2(bool turn_on)
+void Output::setOut2(uint8_t turn_on)
 {
     if (turn_on)
     {

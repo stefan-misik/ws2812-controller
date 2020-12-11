@@ -18,8 +18,8 @@ public:
 
     static void setLed(uint8_t brightness);
     static void setBacklight(uint8_t brightness);
-    static void setOut1(bool turn_on);
-    static void setOut2(bool turn_on);
+    static void setOut1(uint8_t turn_on);
+    static void setOut2(uint8_t turn_on);
 
 };
 

@@ -72,7 +72,7 @@ void Lcd::initialize()
     LcdIo::release();
 }
 
-void Lcd::update()
+void Lcd::update(const uint8_t * frame_buffer)
 {
     static const uint8_t bases[] PROGMEM = {0x04, 0x10, 0x80};
     static const uint8_t masks[] PROGMEM = {0x03, 0x07, 0x7F};
@@ -104,9 +104,10 @@ void Lcd::update()
 
     // Start transmitting data
     LcdIo::setData();
-    for (auto c: frame_buffer_)
+    const uint8_t * const frame_buffer_end = frame_buffer + 504;
+    for (; frame_buffer != frame_buffer_end; ++frame_buffer)
     {
-        LcdIo::transmit(c);
+        LcdIo::transmit(*frame_buffer);
     }
 
     LcdIo::release();
@@ -129,7 +130,6 @@ void Lcd::setParameter(Parameter parameter, uint8_t value)
     }
 }
 
-uint8_t Lcd::frame_buffer_[504];
 uint8_t Lcd::update_parameters_;
 uint8_t Lcd::parameters_[PARAMETER_COUNT];
 

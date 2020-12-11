@@ -3,9 +3,9 @@
 namespace system
 {
 
-EventQueue event_queue;
+void Core::run(uint8_t time)
+{
 
-Input input(&event_queue);
-
+}
 
 }  // namespace system

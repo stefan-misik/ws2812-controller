@@ -29,8 +29,13 @@ public:
     /** @brief Initialize LCD peripherals */
     static void initialize();
 
-    /** @brief Update the parameters and the contents of the display */
-    static void update();
+    /**
+     * @brief Update the parameters and the contents of the display
+     *
+     * @param[in] frame_buffer Frame buffer to send to the LCD. Frame buffer is
+     *            an array of 504 bytes.
+     */
+    static void update(const uint8_t * frame_buffer);
 
     /**
      * @brief Set an LCD parameter to be updated during next update phase
@@ -41,18 +46,7 @@ public:
      */
     static void setParameter(Parameter parameter, uint8_t value);
 
-    /**
-     * @brief Get the LCD frame buffer
-     * 
-     * @return Pointer to the beginnig of the frame buffer
-     */
-    static uint8_t * frameBuffer()
-    {
-        return frame_buffer_;
-    }
-
 private:
-    static uint8_t frame_buffer_[504];
     static uint8_t update_parameters_;
     static uint8_t parameters_[PARAMETER_COUNT];
 };

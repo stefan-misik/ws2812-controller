@@ -7,15 +7,45 @@
 
 #include "system/event_queue.hpp"
 #include "system/input.hpp"
+#include "system/frame_buffer.hpp"
 
 namespace system
 {
 
-/** @brief Main system event queue */
-extern EventQueue event_queue;
+class Core
+{
+public:
+    Core():
+        input_(&event_queue_)
+    { }
 
-/** @brief Main input component */
-extern Input input;
+    void run(uint8_t time);
+
+    EventQueue & eventQueue()
+    {
+        return event_queue_;
+    }
+
+    Input & input()
+    {
+        return input_;
+    }
+
+    FrameBuffer & frameBuffer()
+    {
+        return frame_buffer_;
+    }
+
+private:
+    /** @brief Main system event queue */
+    EventQueue event_queue_;
+
+    /** @brief Main input component */
+    Input input_;
+
+    /** @brief Main LCD frame buffer */
+    FrameBuffer frame_buffer_;
+};
 
 }  // namespace system
 
