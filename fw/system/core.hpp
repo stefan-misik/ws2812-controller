@@ -19,7 +19,12 @@ public:
         input_(&event_queue_)
     { }
 
-    void run(uint8_t time);
+    /**
+     * @brief Periodic system run method
+     *
+     * This method is to be called exactly 10ms.
+     */
+    void run();
 
     EventQueue & eventQueue()
     {

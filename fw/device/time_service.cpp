@@ -24,7 +24,7 @@ void TimeService::initialize()
     // Disable all interrupts, except overflow
     TIMSK1 = (0 << ICIE1) | (0 << OCIE1B) | (1 << OCIE1A) | (0 << TOIE1);
 
-    // Overflow every 10 milliseconds: 2.5 MHz / 6250 = 400 Hz
+    // Overflow every 2.5 milliseconds: 2.5 MHz / 6250 = 400 Hz
     OCR1A = 6250 - 1;
 
     // Disable compare outputs, set CTC mode, frequency 20 MHz / 8 = 2.5 MHz

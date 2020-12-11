@@ -3,7 +3,7 @@
 namespace system
 {
 
-void Core::run(uint8_t time)
+void Core::run()
 {
 
 }
