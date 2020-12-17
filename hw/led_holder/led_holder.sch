@@ -65,19 +65,13 @@ Wire Wire Line
 	5500 3250 5500 3350
 Connection ~ 5500 3350
 Wire Wire Line
-	6450 3800 6250 3800
-Wire Wire Line
 	6250 3350 5500 3350
-Wire Wire Line
-	6450 3900 6250 3900
 Wire Wire Line
 	6250 4350 5500 4350
 Wire Wire Line
 	5100 4200 5100 3850
 Wire Wire Line
 	5100 3850 5200 3850
-Wire Wire Line
-	5800 3850 5900 3850
 $Comp
 L Connector_Generic:Conn_01x01 J1
 U 1 1 5FDB106B
@@ -92,23 +86,23 @@ $EndComp
 $Comp
 L Connector_Generic:Conn_01x01 J2
 U 1 1 5FDB1AD3
-P 6650 3800
-F 0 "J2" H 6730 3842 50  0000 L CNN
-F 1 "Conn_01x01" H 6730 3751 50  0000 L CNN
-F 2 "led_holder_footprints:solder_pad_big" H 6650 3800 50  0001 C CNN
-F 3 "~" H 6650 3800 50  0001 C CNN
-	1    6650 3800
+P 6650 3750
+F 0 "J2" H 6730 3792 50  0000 L CNN
+F 1 "Conn_01x01" H 6730 3701 50  0000 L CNN
+F 2 "led_holder_footprints:solder_pad_big" H 6650 3750 50  0001 C CNN
+F 3 "~" H 6650 3750 50  0001 C CNN
+	1    6650 3750
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x01 J3
 U 1 1 5FDB209E
-P 6650 3900
-F 0 "J3" H 6730 3942 50  0000 L CNN
-F 1 "Conn_01x01" H 6730 3851 50  0000 L CNN
-F 2 "led_holder_footprints:solder_pad_big" H 6650 3900 50  0001 C CNN
-F 3 "~" H 6650 3900 50  0001 C CNN
-	1    6650 3900
+P 6650 3950
+F 0 "J3" H 6730 3992 50  0000 L CNN
+F 1 "Conn_01x01" H 6730 3901 50  0000 L CNN
+F 2 "led_holder_footprints:solder_pad_big" H 6650 3950 50  0001 C CNN
+F 3 "~" H 6650 3950 50  0001 C CNN
+	1    6650 3950
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -122,14 +116,12 @@ F 3 "~" H 6650 4200 50  0001 C CNN
 	1    6650 4200
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	5100 4200 6450 4200
 $Comp
 L led_holder_symbols:WS2812D D1
 U 1 1 5FDA2EA7
 P 5500 3850
-F 0 "D1" H 5844 3896 50  0000 L CNN
-F 1 "WS2812D" H 5844 3805 50  0000 L CNN
+F 0 "D1" H 5750 4000 50  0000 L CNN
+F 1 "WS2812D" H 5750 3900 50  0000 L CNN
 F 2 "led_holder_footprints:LED_D5.0mm_Edge-4_RGB" H 5550 3550 50  0001 L TNN
 F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 5600 3475 50  0001 L TNN
 	1    5500 3850
@@ -138,20 +130,30 @@ $EndComp
 $Comp
 L Device:R R1
 U 1 1 5FDA4D2C
-P 6050 3500
-F 0 "R1" V 5843 3500 50  0000 C CNN
-F 1 "75R" V 5934 3500 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric" V 5980 3500 50  0001 C CNN
-F 3 "~" H 6050 3500 50  0001 C CNN
-	1    6050 3500
+P 6000 4200
+F 0 "R1" V 5793 4200 50  0000 C CNN
+F 1 "75R" V 5884 4200 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 5930 4200 50  0001 C CNN
+F 3 "~" H 6000 4200 50  0001 C CNN
+	1    6000 4200
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	6250 3350 6250 3800
+	6250 3350 6250 3750
 Wire Wire Line
-	6250 3900 6250 4350
+	6250 3750 6450 3750
 Wire Wire Line
-	5900 3500 5900 3850
+	6250 4350 6250 3950
 Wire Wire Line
-	6200 3500 6450 3500
+	6250 3950 6450 3950
+Wire Wire Line
+	6450 4200 6150 4200
+Wire Wire Line
+	5850 4200 5100 4200
+Wire Wire Line
+	6450 3500 6150 3500
+Wire Wire Line
+	6150 3500 6150 3850
+Wire Wire Line
+	5800 3850 6150 3850
 $EndSCHEMATC
