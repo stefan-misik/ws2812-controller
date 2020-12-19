@@ -12,19 +12,18 @@
 
 #include <stdint.h>
 
-uint8_t periodic_state;
+uint8_t periodic_phase;
 tools::PeriodicRoutine periodic_timer;
 
 system::Core system_core;
-
-visual::LedChain led_chain[2];
 
 
 
 void updateLedChain(uint8_t id)
 {
-    uint8_t raw_led_strip[visual::MAX_CHAIN_LENGTH * 3];
-    size_t raw_length = led_chain[id].render(raw_led_strip);
+    visual::LedChain led_chain;
+    uint8_t * raw_led_strip;
+    size_t raw_length = led_chain.render(&raw_led_strip);
     device::LedController::update(id, raw_led_strip, raw_length);
 }
 
@@ -54,7 +53,7 @@ int main(void)
     periodic_timer.setPeriod(1);
     periodic_timer.resetTimerAt(0);
 
-    periodic_state = 0;
+    periodic_phase = 0;
     while(1)
     {
         uint8_t loop_time = device::TimeService::getTime();
@@ -63,17 +62,17 @@ int main(void)
         {
             // Every main loop is split into 4-sub loops which are executed
             // every 10ms with 2.5 ms relative phase shift
-            switch (periodic_state)
+            switch (periodic_phase)
             {
             case 0:
                 // Handle keypad
                 system_core.input().update(0, device::Keypad::readColumn());
                 device::Keypad::selectColumn(1);
 
-                // First sub-loop updates LCD
+                // First phase updates LCD
                 device::Lcd::update(system_core.frameBuffer().begin());
 
-                ++periodic_state;
+                ++periodic_phase;
                 break;
 
             case 1:
@@ -81,10 +80,10 @@ int main(void)
                 system_core.input().update(1, device::Keypad::readColumn());
                 device::Keypad::selectColumn(2);
 
-                // Second sub-loop updates first LED strip
+                // Second phase updates first LED strip
                 updateLedChain(0);
 
-                ++periodic_state;
+                ++periodic_phase;
                 break;
 
             case 2:
@@ -92,21 +91,20 @@ int main(void)
                 system_core.input().update(2, device::Keypad::readColumn());
                 device::Keypad::selectColumn(0);
 
-                // Third sub-loop updates second LED strip
+                // Third phase updates second LED strip
                 updateLedChain(1);
 
-                ++periodic_state;
+                ++periodic_phase;
                 break;
 
             case 3:
-                // Finally execute the main UI
+                // Finally, fourth phase executes the main UI
                 system_core.run();
                 // no break
 
             default:
-                periodic_state = 0;
+                periodic_phase = 0;
                 break;
-
             }
         }
     }

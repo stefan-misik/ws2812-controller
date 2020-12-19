@@ -5,10 +5,13 @@
 namespace visual
 {
 
-size_t LedChain::render(uint8_t * buffer)
+size_t LedChain::render(uint8_t ** buffer)
 {
     size_t length = 3 * static_cast<size_t>(length_);
-    memcpy(buffer, chain_, length);
+
+    // TODO(stefan.misik) Do the post processing
+
+    *buffer = reinterpret_cast<uint8_t *>(chain_);
     return length;
 }
 

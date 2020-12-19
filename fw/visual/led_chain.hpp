@@ -25,34 +25,32 @@ public:
         uint8_t g;
         uint8_t b;
     };
+
     LedChain():
-        length_(0),
-        is_on_(false)
+        length_(0)
     { }
 
     uint8_t length() const { return length_; }
+
     Led * begin() { return chain_; }
     const Led * begin() const { return chain_; }
-    bool isOn() const { return is_on_; }
 
     /**
-     * @brief Render the led strip into a buffer
+     * @brief Modify the led chain to contain the raw data for the LEDs
      *
      * This function takes individual RGB sub-pixels, post-processes them, and
-     * places them in correct order into provided buffer.
+     * places them in correct order modifying its own buffer.
      *
-     * @param[out] buffer Buffer which will obtain the LED strip contents. The
-     *             buffer needs to be of sufficient size to obtain states of all
-     *             sub-pixels, i.e. MAX_CHAIN_LENGTH * 3.
+     * @param[out] buffer Pointer to the variable which will obtain pointer to
+     *             raw buffer containing LED data
      *
-     * @return Number of bytes actually written into the buffer
+     * @return Number of bytes to be read from the raw buffer
      */
-    size_t render(uint8_t * buffer);
+    size_t render(uint8_t ** buffer);
 
 private:
     Led chain_[MAX_CHAIN_LENGTH];
     uint8_t length_;
-    bool is_on_;
 };
 
 }  // namespace visual
