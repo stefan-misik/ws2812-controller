@@ -5,6 +5,7 @@
 #ifndef SYSTEM_CORE_HPP_
 #define SYSTEM_CORE_HPP_
 
+#include "system/clock.hpp"
 #include "system/event_queue.hpp"
 #include "system/input.hpp"
 #include "system/frame_buffer.hpp"
@@ -24,24 +25,14 @@ public:
     /**
      * @brief Periodic system run method
      *
-     * This method is to be called exactly 10ms.
+     * This method is to be called exactly every 10ms.
      */
     void run();
 
-    EventQueue & eventQueue()
-    {
-        return event_queue_;
-    }
-
-    Input & input()
-    {
-        return input_;
-    }
-
-    FrameBuffer & frameBuffer()
-    {
-        return frame_buffer_;
-    }
+    Clock & clock() { return clock_; }
+    EventQueue & eventQueue() { return event_queue_; }
+    Input & input() { return input_; }
+    FrameBuffer & frameBuffer() { return frame_buffer_; }
 
     /**
      * @brief Set the root display object
@@ -54,6 +45,9 @@ public:
     }
 
 private:
+    /** @brief Main system time-keeping */
+    Clock clock_;
+
     /** @brief Main system event queue */
     EventQueue event_queue_;
 

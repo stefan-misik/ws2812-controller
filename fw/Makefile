@@ -27,7 +27,8 @@ PROJ = ws2812-controller
 SRC  = device/lcd.cpp device/output.cpp device/keypad.cpp  \
        device/time_service.cpp device/led_controller.cpp  \
        system/input.cpp system/event_queue.cpp system/frame_buffer.cpp  \
-       system/draw_context.cpp system/display_object.cpp system/core.cpp  \
+       system/clock.cpp system/draw_context.cpp system/display_object.cpp  \
+       system/core.cpp  \
        visual/led_chain.cpp visual/animation.cpp  \
        tools/timer.cpp tools/button_filter.cpp tools/generic_queue.cpp \
        system.cpp main.cpp
