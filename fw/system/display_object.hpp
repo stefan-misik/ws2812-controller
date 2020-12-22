@@ -43,9 +43,13 @@ public:
     /**
      * @brief Draw the contents of the display object on given draw context
      *
-     * @param[in] dc Draw context to draw on
+     * This method can be called on regular basis and the current time is passed
+     * to facilitate drawing animations.
+     *
+     * @param dc Draw context to draw on
+     * @param time Binary time keeping counter in 10 ms increments
      */
-    virtual void draw(const DrawContext & dc);
+    virtual void draw(DrawContext & dc, uint8_t time);
 
     virtual ~DisplayObject() = default;
 };

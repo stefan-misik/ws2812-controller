@@ -27,6 +27,19 @@ public:
     { }
 
     const Rectangle & drawArea() const { return draw_area_; }
+    void setDrawArea(const Rectangle & draw_area) { draw_area_ = draw_area; }
+
+    /**
+     * @brief Set the draw area to given sub-area (area relative to the current
+     *        draw area)
+     *
+     * @param[in] sub_draw_area New sub-area
+     * @param[out] original_draw_area Optional pointer to rectangle, which will
+     *             obtain the original draw area
+     */
+    void changeSubDrawArea(
+            const Rectangle & sub_draw_area,
+            Rectangle * original_draw_area = nullptr);
 
     /**
      * @brief Get the pointer to the data at given position in the draw area

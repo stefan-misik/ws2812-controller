@@ -5,8 +5,8 @@
 #include "device/keypad.hpp"
 
 #include "system/core.hpp"
+#include "application/core.hpp"
 
-#include "visual/led_chain.hpp"
 
 #include "tools/timer.hpp"
 
@@ -16,16 +16,8 @@ uint8_t periodic_phase;
 tools::PeriodicRoutine periodic_timer;
 
 system::Core system_core;
+application::Core application_core;
 
-
-
-void updateLedChain(uint8_t id)
-{
-    visual::LedChain led_chain;
-    uint8_t * raw_led_strip;
-    size_t raw_length = led_chain.render(&raw_led_strip);
-    device::LedController::update(id, raw_led_strip, raw_length);
-}
 
 
 int main(void)
@@ -48,6 +40,7 @@ int main(void)
 
     device::Keypad::selectColumn(0);
 
+    system_core.setRootDisplayObject(&application_core.rootScreen());
 
     // Prepare the main loop
     periodic_timer.setPeriod(1);
@@ -81,7 +74,7 @@ int main(void)
                 device::Keypad::selectColumn(2);
 
                 // Second phase updates first LED strip
-                updateLedChain(0);
+                // TODO(stefan.misik) Update LED chain A
 
                 ++periodic_phase;
                 break;
@@ -92,7 +85,7 @@ int main(void)
                 device::Keypad::selectColumn(0);
 
                 // Third phase updates second LED strip
-                updateLedChain(1);
+                // TODO(stefan.misik) Update LED chain B
 
                 ++periodic_phase;
                 break;

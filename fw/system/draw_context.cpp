@@ -5,6 +5,21 @@
 namespace system
 {
 
+void DrawContext::changeSubDrawArea(
+        const Rectangle & sub_draw_area,
+        Rectangle * original_draw_area)
+{
+    if (original_draw_area)
+    {
+        *original_draw_area = draw_area_;
+    }
+
+    draw_area_.left += sub_draw_area.left;
+    draw_area_.top += sub_draw_area.top;
+    draw_area_.right = draw_area_.left + sub_draw_area.right;
+    draw_area_.bottom = draw_area_.top + sub_draw_area.bottom;
+}
+
 uint8_t * DrawContext::dataAt(uint8_t x, uint8_t y) const
 {
     uint16_t actual_x = draw_area_.left + x;

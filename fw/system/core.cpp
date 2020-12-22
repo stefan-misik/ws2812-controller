@@ -17,7 +17,7 @@ void Core::run()
 
     {
         DrawContext dc(frame_buffer_, Rectangle{});
-        root_display_object_->draw(dc);
+        root_display_object_->draw(dc, clock_.hunderethSeconds());
     }
 
     clock_.tick();
