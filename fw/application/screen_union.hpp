@@ -5,7 +5,6 @@
 #ifndef APPLICATION_ROOT_SCREEN_HPP_
 #define APPLICATION_ROOT_SCREEN_HPP_
 
-#include "system/display_object.hpp"
 #include "application/screen/startup.hpp"
 #include "application/screen/control.hpp"
 #include "application/screen/settings.hpp"
@@ -13,9 +12,7 @@
 namespace application
 {
 
-class Core;
-
-class RootScreen:
+class ScreenUnion:
         public system::DisplayObject
 {
 public:
@@ -24,14 +21,7 @@ public:
         STARTUP = 0, CONTROL, SETTINGS
     };
 
-    RootScreen();
-
-    /** @copydoc system::DisplayObject::processEvent() */
-    uint8_t processEvent(
-            const system::Event & event,
-            system::Event * new_event) override;
-    /** @copydoc system::DisplayObject::draw() */
-    void draw(system::DrawContext & dc, uint8_t time) override;
+    ScreenUnion();
 
     /**
      * @brief Change the display screen
@@ -39,6 +29,29 @@ public:
      * @param new_screen Screen to be changed into
      */
     void changeScreen(Screen new_screen);
+
+    /**
+     * @brief Get active screen identification
+     *
+     * @return Screen identification
+     */
+    Screen activeScreen() const
+    {
+        return active_screen_;
+    }
+
+    /**
+     * @brief Get the pointer to the active screen display object
+     *
+     * @return Pointer to the active screen object
+     */
+    system::DisplayObject * activeScreenObject()
+    {
+        // This assumes that system::DisplayObject has the same address as
+        // individual screens (i.e. screens should not inherit only from single
+        // class - system::DisplayObject).
+        return reinterpret_cast<system::DisplayObject *>(screen_data_);
+    }
 
 private:
     union Screens
@@ -49,18 +62,8 @@ private:
         Screens() = delete;
     };
 
-
-
     char screen_data_[sizeof(Screens)];
     Screen active_screen_;
-
-    system::DisplayObject * activeScreen()
-    {
-        // This assumes that system::DisplayObject has the same address as
-        // individual screens (i.e. screens should not inherit only from single
-        // class - system::DisplayObject).
-        return reinterpret_cast<system::DisplayObject *>(screen_data_);
-    }
 };
 
 }  // namespace application

@@ -29,10 +29,10 @@ SRC  = device/lcd.cpp device/output.cpp device/keypad.cpp  \
        tools/timer.cpp tools/button_filter.cpp tools/generic_queue.cpp \
        system/input.cpp system/event_queue.cpp system/frame_buffer.cpp  \
        system/clock.cpp system/draw_context.cpp system/display_object.cpp  \
-       system/core.cpp  \
+       system/control.cpp system/controls/tab.cpp system/core.cpp  \
        visual/led_chain.cpp visual/animation.cpp  \
        application/screen/startup.cpp application/screen/control.cpp  \
-       application/screen/settings.cpp application/root_screen.cpp  \
+       application/screen/settings.cpp application/screen_union.cpp  \
        application/settings.cpp application/text.cpp  \
        application/core.cpp  \
        system.cpp main.cpp

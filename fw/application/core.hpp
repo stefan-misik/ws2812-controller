@@ -5,22 +5,31 @@
 #ifndef APPLICATION_CORE_HPP_
 #define APPLICATION_CORE_HPP_
 
-#include "application/root_screen.hpp"
+#include "system/display_object.hpp"
+#include "application/screen_union.hpp"
 #include "application/settings.hpp"
 #include "application/text.hpp"
 
 namespace application
 {
 
-class Core
+class Core:
+        public system::DisplayObject
 {
 public:
-    RootScreen & rootScreen() { return root_screen_; }
-    Text & text() { return text_; }
+    /** @copydoc system::DisplayObject::processEvent() */
+    uint8_t processEvent(
+            const system::Event & event,
+            system::Event * new_event) override;
+    /** @copydoc system::DisplayObject::draw() */
+    void draw(system::DrawContext & dc, uint8_t time) override;
+
+    static Text & text() { return text_; }
 
 private:
-    RootScreen root_screen_;
-    Text text_;
+    static Text text_;
+
+    ScreenUnion screen_union_;
 };
 
 }  // namespace application

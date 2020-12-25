@@ -16,14 +16,18 @@ public:
     enum State
     {
         /** @brief Indicates current state of the button */
-        PRESSED = 0x01,
-        /** @brief Set in an update cycle when the button is first pressed */
-        DOWN = 0x02,
+        PRESSED = 0x20,
+        /** @brief Set in an update cycle when the button is pressed */
+        DOWN = 0x40,
         /** @brief Set in an update cycle when the button is released */
-        UP = 0x04,
-        /** @brief Set every update cycle a press event is generated */
-        PRESS = 0x08
+        UP = 0x80,
     };
+
+    /**
+     * @brief Maximum number of repeated presses of a button that can be
+     *        reported
+     */
+    static constexpr uint8_t MAX_PRESS_COUNT = 0x1f;
 
     ButtonFilter():
         counter_(0),
@@ -55,7 +59,18 @@ public:
      */
     uint8_t state() const
     {
-        return state_;
+        return state_ & (PRESSED | DOWN | UP);
+    }
+
+    /**
+     * @brief Get the number of repeated button press down events generated
+     *
+     * @return Number of repeated press down events, the value saturates at
+     *         @ref MAX_PRESS_COUNT value
+     */
+    uint8_t pressCount() const
+    {
+        return state_ & MAX_PRESS_COUNT;
     }
 
 private:

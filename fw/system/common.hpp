@@ -11,9 +11,15 @@
 namespace system
 {
 
-enum class Key: char
+enum Key: char
 {
-    ENTER = '5'
+    KEY_ENTER = '5',
+    KEY_UP = '2',
+    KEY_DOWN = '8',
+    KEY_LEFT = '4',
+    KEY_RIGHT = '6',
+    KEY_OK = '#',
+    KEY_CLEAR = '*'
 };
 
 static constexpr uint8_t DISPLAY_WIDTH = 84;
@@ -26,8 +32,23 @@ struct Event
 {
     enum MessageType: uint8_t
     {
+        RESERVED = 0,
+
+        /**
+         * @brief Key press or repeated key press detected
+         *
+         * * `sdata` - Key that was pressed
+         * * `ldata` - Repeated key press count, starting from 0 and saturating
+         *             at 31
+         */
         KEY_DOWN,
-        KEY_PRESS,
+
+        /**
+         * @brief A key was released
+         *
+         * * `sdata` - Key that was released
+         * * `ldata` - Ignored, should be zero
+         */
         KEY_UP,
 
         USER = 128

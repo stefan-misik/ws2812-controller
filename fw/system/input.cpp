@@ -34,16 +34,15 @@ void Input::update(uint8_t column, uint8_t keys)
 
         if (key_state & tools::ButtonFilter::DOWN)
         {
-            receiver_->insert(Event{Event::KEY_DOWN, key_char, 0});
+            receiver_->insert(Event{
+                Event::KEY_DOWN,
+                key_char,
+                key_filter->pressCount()
+            });
         }
         else if (key_state & tools::ButtonFilter::UP)
         {
             receiver_->insert(Event{Event::KEY_UP, key_char, 0});
-        }
-
-        if (key_state & tools::ButtonFilter::PRESS)
-        {
-            receiver_->insert(Event{Event::KEY_PRESS, key_char, 0});
         }
 
         keys >>= 1;

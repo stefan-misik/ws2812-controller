@@ -40,7 +40,7 @@ int main(void)
 
     device::Keypad::selectColumn(0);
 
-    system_core.setRootDisplayObject(&application_core.rootScreen());
+    system_core.setRootDisplayObject(&application_core);
 
     // Prepare the main loop
     periodic_timer.setPeriod(1);

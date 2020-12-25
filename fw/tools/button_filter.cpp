@@ -36,6 +36,7 @@ void ButtonFilter::updateButton(bool button_state)
 void ButtonFilter::updateState()
 {
     bool old_pressed = (state_ & PRESSED);
+    uint8_t press_count = pressCount();
     uint8_t new_state = 0;
 
     if (0 == counter_)
@@ -43,6 +44,7 @@ void ButtonFilter::updateState()
         if (old_pressed)
         {
             new_state |= UP;
+            press_count = 0;
         }
     }
     else if (counter_ >= PRESS_THRESHOLD)
@@ -55,13 +57,22 @@ void ButtonFilter::updateState()
         // released (e.g. just for one update period).
         if (!old_pressed)
         {
-            new_state |= (DOWN | PRESS);
+            new_state |= DOWN;
+            press_count = 0;
         }
         else if (REPEAT_THRESHOLD == counter_)
         {
             // This is branch is also taken in update cycle when
             // NEXT_REPEAT_THRESHOLD is reached, see countUp()
-            new_state |= PRESS;
+            new_state |= DOWN;
+
+            // Count-up the count of button presses and saturate at the maximum
+            // value.
+            press_count += 1;
+            if (press_count > MAX_PRESS_COUNT)
+            {
+                press_count = MAX_PRESS_COUNT;
+            }
         }
     }
     else if (old_pressed)
@@ -69,7 +80,9 @@ void ButtonFilter::updateState()
         new_state |= PRESSED;
     }
 
-    state_ = new_state;
+    // Press count counter is properly saturated to prevent mixing with the
+    // state flag bits.
+    state_ = press_count | new_state;
 }
 
 }  // namespace tools
