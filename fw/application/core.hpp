@@ -6,6 +6,7 @@
 #define APPLICATION_CORE_HPP_
 
 #include "system/display_object.hpp"
+#include "system/controls/tab.hpp"
 #include "application/screen_union.hpp"
 #include "application/settings.hpp"
 #include "application/text.hpp"
@@ -17,6 +18,8 @@ class Core:
         public system::DisplayObject
 {
 public:
+    Core();
+
     /** @copydoc system::DisplayObject::processEvent() */
     uint8_t processEvent(
             const system::Event & event,
@@ -29,6 +32,7 @@ public:
 private:
     static Text text_;
 
+    system::TabControl screen_control_;
     ScreenUnion screen_union_;
 };
 

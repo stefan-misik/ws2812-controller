@@ -1,5 +1,7 @@
 #include "system/draw_context.hpp"
 
+#include <avr/pgmspace.h>
+
 #include "system/gui/font.inc"
 
 namespace system
@@ -46,7 +48,7 @@ size_t DrawContext::drawText(
     uint8_t * draw_out = dataAt(x, y);
     if (nullptr == draw_out)
     {
-        return false;
+        return 0;
     }
 
     // Modify behavior based on passed properties
@@ -56,8 +58,7 @@ size_t DrawContext::drawText(
         flags = text_properties->flags;
         if (0 != text_properties->offset)
         {
-            const uint8_t char_width = TextProperties::FLAG_BOLD & flags ?
-                    7 : 6;
+            const uint8_t char_width = FLAG_TEXT_BOLD & flags ? 7 : 6;
             size_t skip_characters = text_properties->offset / char_width;
             glyph_offset = text_properties->offset -
                     (skip_characters * char_width);
@@ -67,12 +68,15 @@ size_t DrawContext::drawText(
 
     // Start drawing the text
     uint8_t * const draw_end = draw_out + widthWithin(x, width);
-    const uint8_t blend_type  = flags & TextProperties::FLAG_BLEND_MASK;
-    while ('\0' != *text)
+    const uint8_t blend_type  = flags & FLAG_BLEND_MASK;
+    char c;
+    while ('\0' != (c = (flags & FLAG_FROM_PROGMEM ?
+            pgm_read_byte(text) :
+            *text)))
     {
         const uint8_t * const glyph_start_pgm =
-                &(gui_base_font[*text < 0x20 ?
-                        0 : static_cast<uint8_t>(*text) - 0x20][0]);
+                &(gui_base_font[c < 0x20 ?
+                        0 : static_cast<uint8_t>(c) - 0x20][0]);
 
         uint8_t previous = (0 == glyph_offset || 6 == glyph_offset) ?
                 0 : pgm_read_byte(glyph_start_pgm + glyph_offset - 1);
@@ -95,13 +99,13 @@ size_t DrawContext::drawText(
                 uint8_t glyph_data =
                         pgm_read_byte(glyph_start_pgm + glyph_offset);
                 current_graphics = glyph_data;
-                if (TextProperties::FLAG_BOLD & flags)
+                if (FLAG_TEXT_BOLD & flags)
                 {
                     current_graphics |= previous;
                     previous = glyph_data;
                 }
             }
-            if (TextProperties::FLAG_INVERT & flags)
+            if (FLAG_INVERT & flags)
             {
                 current_graphics = ~current_graphics;
             }
@@ -109,16 +113,16 @@ size_t DrawContext::drawText(
             // Write the graphic data
             switch (blend_type)
             {
-            case TextProperties::FLAG_BLEND_SET:
+            case FLAG_BLEND_SET:
                 *draw_out = current_graphics;
                 break;
-            case TextProperties::FLAG_BLEND_OR:
+            case FLAG_BLEND_OR:
                 *draw_out |= current_graphics;
                 break;
-            case TextProperties::FLAG_BLEND_AND:
+            case FLAG_BLEND_AND:
                 *draw_out &= current_graphics;
                 break;
-            case TextProperties::FLAG_BLEND_XOR:
+            case FLAG_BLEND_XOR:
                 *draw_out ^= current_graphics;
                 break;
             }
@@ -129,7 +133,7 @@ size_t DrawContext::drawText(
         };
 
         // Finish the glyph
-        if ((TextProperties::FLAG_BOLD & flags) && 5 == glyph_offset)
+        if ((FLAG_TEXT_BOLD & flags) && 5 == glyph_offset)
         {
             *draw_out = previous;
             ++draw_out;
@@ -143,6 +147,72 @@ size_t DrawContext::drawText(
     }
 
     return text - text_start;
+}
+
+uint8_t DrawContext::drawBitmap(
+        uint8_t x, uint8_t y,
+        const uint8_t * bitmap, uint8_t length,
+        uint8_t repeat_count, uint8_t flags) const
+{
+    uint8_t * draw_out = dataAt(x, y);
+    if (nullptr == draw_out)
+    {
+        return 0;
+    }
+    uint8_t actual_length = widthWithin(x, length * repeat_count);
+    uint8_t * const draw_end = draw_out + actual_length;
+    const uint8_t * const bitmap_rend = bitmap - 1;
+    const uint8_t * const bitmap_end = bitmap + length;
+
+    const int8_t step = (flags & FLAG_BITMAP_REVERSE) ? -1 : 1;
+    if (flags & FLAG_BITMAP_REVERSE)
+    {
+        bitmap = bitmap_end - 1;
+    }
+
+    const uint8_t blend_type  = flags & FLAG_BLEND_MASK;
+    while (draw_out != draw_end)
+    {
+        uint8_t current_graphics = (flags & FLAG_FROM_PROGMEM) ?
+                pgm_read_byte(bitmap) :
+                *bitmap;
+
+        if (FLAG_INVERT & flags)
+        {
+            current_graphics = ~current_graphics;
+        }
+
+        // Write the graphic data
+        switch (blend_type)
+        {
+        case FLAG_BLEND_SET:
+            *draw_out = current_graphics;
+            break;
+        case FLAG_BLEND_OR:
+            *draw_out |= current_graphics;
+            break;
+        case FLAG_BLEND_AND:
+            *draw_out &= current_graphics;
+            break;
+        case FLAG_BLEND_XOR:
+            *draw_out ^= current_graphics;
+            break;
+        }
+
+        // Increment the position
+        ++draw_out;
+        bitmap += step;
+        if (bitmap == bitmap_end)
+        {
+            bitmap = bitmap_rend + 1;
+        }
+        else if (bitmap == bitmap_rend)
+        {
+            bitmap = bitmap_end - 1;
+        }
+    }
+
+    return actual_length;
 }
 
 uint8_t DrawContext::widthWithin(uint8_t x, uint8_t width) const

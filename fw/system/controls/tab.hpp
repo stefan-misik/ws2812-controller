@@ -19,6 +19,11 @@ public:
         TEXT_IN_PROGMEM = (Control::Flags::USER_FLAGS << 0)
     };
 
+    enum EventResult: uint8_t
+    {
+        EVENT_TAB_CHANGE = DisplayObject::EventResult::EVENT_USER_RESULT + 0
+    };
+
     /** @copydoc system::DisplayObject::processEvent() */
     uint8_t processEvent(
             const system::Event & event,
@@ -36,9 +41,11 @@ public:
     void setText(const char * new_text) { text_ = new_text; }
 
 private:
-    uint8_t tab_count_;
-    uint8_t current_tab_;
-    const char * text_;
+    static constexpr uint8_t ADDED_BORDER = 3;
+
+    uint8_t tab_count_ = 1;
+    uint8_t current_tab_ = 0;
+    const char * text_ = nullptr;
 };
 
 }  // namespace

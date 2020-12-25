@@ -17,13 +17,14 @@ public:
     /** @brief Result of event processing */
     enum EventResult: uint8_t
     {
-        EVENT_NOT_PROCESSED,  /**< Event was not processed by the object */
+        EVENT_NOT_PROCESSED = 0,  /**< Event was not processed by the object */
         EVENT_PROCESSED,  /**< Event processed by the object */
         /** @brief Event processed and a new response event is generated */
         EVENT_PROCESSED_AND_NEW_RETURNED,
 
         /**
-         * @brief User-defined object-specific results
+         * @brief User-defined object-specific results, all these imply that
+         *        the event was processed
          *
          * This and higher result codes are reserved as object-specific.
          */
@@ -37,6 +38,7 @@ public:
      * @param[out] new_event New generated event
      *
      * @return Event processing result code (see @ref EventResult)
+     * @retval 0 The message was not processed by the display object
      */
     virtual uint8_t processEvent(const Event & event, Event * new_event);
 

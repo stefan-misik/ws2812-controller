@@ -17,6 +17,19 @@ namespace system
 class DrawContext
 {
 public:
+    enum Flags: uint8_t
+    {
+        FLAG_BLEND_SET = 0,
+        FLAG_BLEND_OR = (1 << 0),
+        FLAG_BLEND_AND = (1 << 1),
+        FLAG_BLEND_XOR = (1 << 0) | (1 << 1),
+        FLAG_BLEND_MASK = (1 << 0) | (1 << 1),
+        FLAG_INVERT = (1 << 2),
+        FLAG_FROM_PROGMEM = (1 << 3),
+        FLAG_TEXT_BOLD = (1 << 4),
+        FLAG_BITMAP_REVERSE = (1 << 4)
+    };
+
     struct TextProperties;
 
     DrawContext(const DrawContext &) = default;
@@ -67,6 +80,23 @@ public:
             const char * text,
             const TextProperties * text_properties = nullptr) const;
 
+    /**
+     * @brief Draw a bitmap line into the draw context
+     *
+     * @param x X coordinate of the text
+     * @param y Y coordinate of the text
+     * @param[in] bitmap Bitmap to be copied into the draw context
+     * @param length Length of the bitmap data
+     * @param repeat_count Number of times to repeat the bitmap
+     * @param flags Bitmap drawing flags
+     *
+     * @return Number of columns drawn into the draw context
+     */
+    uint8_t drawBitmap(
+            uint8_t x, uint8_t y,
+            const uint8_t * bitmap, uint8_t length,
+            uint8_t repeat_count, uint8_t flags) const;
+
 private:
     uint8_t * frame_buffer_;
     Rectangle draw_area_;
@@ -85,17 +115,6 @@ private:
 
 struct DrawContext::TextProperties
 {
-    enum TextFlags: uint8_t
-    {
-        FLAG_BLEND_SET = 0,
-        FLAG_BLEND_OR = (1 << 0),
-        FLAG_BLEND_AND = (1 << 1),
-        FLAG_BLEND_XOR = (1 << 0) | (1 << 1),
-        FLAG_BLEND_MASK = (1 << 0) | (1 << 1),
-        FLAG_BOLD = (1 << 2),
-        FLAG_INVERT = (1 << 3),
-    };
-
     TextProperties():
         offset(0),
         max_width(DISPLAY_WIDTH),
