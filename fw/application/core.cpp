@@ -4,8 +4,6 @@
 namespace application
 {
 
-const char test[] PROGMEM = "Test";
-
 Text Core::text_;
 
 Core::Core()
@@ -48,6 +46,8 @@ uint8_t Core::processEvent(
                     system::KEY_DOWN == event.sdata)
             {
                 screen_control_.setFlag(system::TabControl::HAS_FOCUS, false);
+                screen_control_.setFlag(system::TabControl::PENDING_REDRAW,
+                        true);
             }
             break;
 
@@ -66,6 +66,8 @@ uint8_t Core::processEvent(
                     system::KEY_UP == event.sdata)
             {
                 screen_control_.setFlag(system::TabControl::HAS_FOCUS, true);
+                screen_control_.setFlag(system::TabControl::PENDING_REDRAW,
+                        true);
             }
         }
     }
