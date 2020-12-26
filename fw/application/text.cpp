@@ -52,7 +52,8 @@ const char * Text::getProgmemText(Phrase phrase_id) const
             reinterpret_cast<uintptr_t>(translation_table_en) +
             (translation_ * sizeof(translation_table_en)));
 
-    return table[static_cast<size_t>(phrase_id)];
+    return reinterpret_cast<const char *>(
+            pgm_read_ptr(table + static_cast<size_t>(phrase_id)));
 }
 
 }  // namespace application

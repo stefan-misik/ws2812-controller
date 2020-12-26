@@ -32,6 +32,16 @@ public:
 
     struct TextProperties;
 
+    /**
+     * @brief Measure the width of the given text in pixels
+     *
+     * @param[in] text Text to measure the width of
+     * @param flags Text drawing flags
+     *
+     * @return Width in pixels
+     */
+    static size_t measureTextWidth(const char * text, uint8_t flags);
+
     DrawContext(const DrawContext &) = default;
 
     DrawContext(FrameBuffer & frame_buffer, const Rectangle & draw_area):

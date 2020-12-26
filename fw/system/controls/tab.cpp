@@ -6,9 +6,24 @@
 namespace system
 {
 
-static const uint8_t tab_edge[] PROGMEM =
+static const uint8_t tab_edge_left[] PROGMEM =
 {
-    0x40, 0x3e, 0x01
+    0x6a, 0x7f
+};
+
+static const uint8_t tab_edge_right[] PROGMEM =
+{
+    0x7f, 0x7f
+};
+
+static const uint8_t tab_background[] PROGMEM =
+{
+    0x6a, 0x55
+};
+
+static const uint8_t tab_foreground[] PROGMEM =
+{
+    0x00
 };
 
 
@@ -52,25 +67,81 @@ uint8_t TabControl::processEvent(
 void TabControl::draw(system::DrawContext & dc, uint8_t time)
 {
     flags_ &= ~Control::PENDING_REDRAW;
+
+    // Fix the current tab ID, in case the tab count changed
     if (current_tab_ >= tab_count_)
     {
         current_tab_ = tab_count_ - 1;
     }
 
+    DrawContext::TextProperties tp;
+    tp.flags |= DrawContext::FLAG_TEXT_BOLD;
+    if (TEXT_IN_PROGMEM & flags_)
+    {
+        tp.flags |= DrawContext::FLAG_FROM_PROGMEM;
+    }
+    tp.max_width = (nullptr != text_) ?
+            system::DrawContext::measureTextWidth(text_, tp.flags) : 0;
+
+    const uint8_t graphics_width = calculateTabGraphicsWidth();
+    const uint8_t width = dc.drawArea().width();
+
+    // Adapt text width
+    if (graphics_width + tp.max_width > width)
+    {
+        tp.max_width = width - graphics_width;
+    }
+
+    // Draw
+    const uint8_t text_position = drawTabs(dc, tp.max_width);
+    dc.drawText(text_position, 0, text_, &tp);
+}
+
+uint8_t TabControl::calculateTabGraphicsWidth() const
+{
+    uint8_t width = 0;
+
+    // Left and right margin
+    width += sizeof(tab_background) * (TAB_ADD_MARGIN + current_tab_ + 1);
+    // Left tab edge
+    width += sizeof(tab_edge_left);
+    // Left and right padding
+    width += 2 * TAB_PADDING;
+    // Right tab edge
+    width += sizeof(tab_edge_right);
+
+    return width;
+}
+
+uint8_t TabControl::drawTabs(
+        const system::DrawContext & dc,
+        uint8_t text_width) const
+{
     const uint8_t width = dc.drawArea().width();
     uint8_t pos = 0;
+    uint8_t text_pos;
 
-    pos += dc.drawBitmap(pos, 0, tab_edge, 1, ADDED_BORDER,
+    // Left margin
+    pos += dc.drawBitmap(pos, 0, tab_background, sizeof(tab_background),
+            TAB_ADD_MARGIN + current_tab_,
             DrawContext::FLAG_FROM_PROGMEM);
-    pos += dc.drawBitmap(pos, 0, tab_edge, sizeof(tab_edge), current_tab_ + 1,
+    // Left tab edge
+    pos += dc.drawBitmap(pos, 0, tab_edge_left, sizeof(tab_edge_left), 1,
             DrawContext::FLAG_FROM_PROGMEM);
-    pos += dc.drawBitmap(pos, 0, tab_edge + (sizeof(tab_edge) - 1), 1, 20,
+    // Space for the text
+    text_pos = pos + TAB_PADDING;
+    pos += dc.drawBitmap(pos, 0, tab_foreground, 1,
+            text_width + (2 * TAB_PADDING),
             DrawContext::FLAG_FROM_PROGMEM);
-    pos += dc.drawBitmap(pos, 0, tab_edge, sizeof(tab_edge),
-            tab_count_ - current_tab_,
-            DrawContext::FLAG_FROM_PROGMEM | DrawContext::FLAG_BITMAP_REVERSE);
-    dc.drawBitmap(pos, 0, tab_edge, 1, width - pos,
+    // Right tab edge
+    pos += dc.drawBitmap(pos, 0, tab_edge_right, sizeof(tab_edge_right), 1,
             DrawContext::FLAG_FROM_PROGMEM);
+    // Right margin
+    dc.drawBitmap(pos, 0, tab_background, sizeof(tab_background),
+            (width - pos) / sizeof(tab_background),
+            DrawContext::FLAG_FROM_PROGMEM);
+
+    return text_pos;
 }
 
 }  // namespace system

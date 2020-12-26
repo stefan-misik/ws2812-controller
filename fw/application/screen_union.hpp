@@ -16,7 +16,7 @@ class ScreenUnion:
         public system::DisplayObject
 {
 public:
-    enum class Screen
+    enum class Screen: uint8_t
     {
         STARTUP = 0, CONTROL, SETTINGS
     };

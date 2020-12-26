@@ -41,11 +41,29 @@ public:
     void setText(const char * new_text) { text_ = new_text; }
 
 private:
-    static constexpr uint8_t ADDED_BORDER = 3;
+    static constexpr uint8_t TAB_ADD_MARGIN = 1;
+    static constexpr uint8_t TAB_PADDING = 2;
 
     uint8_t tab_count_ = 1;
     uint8_t current_tab_ = 0;
     const char * text_ = nullptr;
+
+    /**
+     * @brief Calculate the minimum width required by the tab graphics only
+     *
+     * @return Width in pixels
+     */
+    uint8_t calculateTabGraphicsWidth() const;
+
+    /**
+     * @brief Draw the tab graphics and return the position of the text
+     *
+     * @param[in] dc Draw context
+     * @param text_width Width Desired text width
+     *
+     * @return Offset at which the text is to be drawn
+     */
+    uint8_t drawTabs(const system::DrawContext & dc, uint8_t text_width) const;
 };
 
 }  // namespace

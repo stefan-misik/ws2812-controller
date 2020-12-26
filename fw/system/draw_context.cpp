@@ -7,6 +7,17 @@
 namespace system
 {
 
+size_t DrawContext::measureTextWidth(const char * text, uint8_t flags)
+{
+    size_t length = 0;
+    while ('\0' != ((FLAG_FROM_PROGMEM & flags) ? pgm_read_byte(text) : *text))
+    {
+        ++length;
+        ++text;
+    }
+    return length * ((FLAG_TEXT_BOLD & flags) ? 7 : 6);
+}
+
 void DrawContext::changeSubDrawArea(
         const Rectangle & sub_draw_area,
         Rectangle * original_draw_area)
