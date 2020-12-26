@@ -146,11 +146,57 @@ size_t DrawContext::drawText(
         // Finish the glyph
         if ((FLAG_TEXT_BOLD & flags) && 5 == glyph_offset)
         {
-            *draw_out = previous;
+            uint8_t current_graphics = previous;
+            if (FLAG_INVERT & flags)
+            {
+                current_graphics = ~current_graphics;
+            }
+
+            // Write the graphic data
+            switch (blend_type)
+            {
+            case FLAG_BLEND_SET:
+                *draw_out = current_graphics;
+                break;
+            case FLAG_BLEND_OR:
+                *draw_out |= current_graphics;
+                break;
+            case FLAG_BLEND_AND:
+                *draw_out &= current_graphics;
+                break;
+            case FLAG_BLEND_XOR:
+                *draw_out ^= current_graphics;
+                break;
+            }
             ++draw_out;
         }
-        *draw_out = 0;
-        ++draw_out;
+
+        // Glyph space
+        {
+            uint8_t current_graphics = 0;
+            if (FLAG_INVERT & flags)
+            {
+                current_graphics = ~current_graphics;
+            }
+
+            // Write the graphic data
+            switch (blend_type)
+            {
+            case FLAG_BLEND_SET:
+                *draw_out = current_graphics;
+                break;
+            case FLAG_BLEND_OR:
+                *draw_out |= current_graphics;
+                break;
+            case FLAG_BLEND_AND:
+                *draw_out &= current_graphics;
+                break;
+            case FLAG_BLEND_XOR:
+                *draw_out ^= current_graphics;
+                break;
+            }
+            ++draw_out;
+        }
 
         // Move to the next character
         glyph_offset = 0;
