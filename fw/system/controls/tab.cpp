@@ -26,6 +26,11 @@ static const uint8_t tab_foreground[] PROGMEM =
     0x00
 };
 
+static const uint8_t tab_foreground_focus[] PROGMEM =
+{
+    0x7f
+};
+
 
 uint8_t TabControl::processEvent(
         const system::Event & event,
@@ -94,6 +99,10 @@ void TabControl::draw(system::DrawContext & dc, uint8_t time)
 
     // Draw
     const uint8_t text_position = drawTabs(dc, tp.max_width);
+    if (flags_ & HAS_FOCUS)
+    {
+        tp.flags |= DrawContext::FLAG_BLEND_AND | DrawContext::FLAG_INVERT;
+    }
     dc.drawText(text_position, 0, text_, &tp);
 }
 
@@ -133,7 +142,8 @@ uint8_t TabControl::drawTabs(
             DrawContext::FLAG_FROM_PROGMEM | DrawContext::FLAG_BLEND_OR);
     // Space for the text
     text_pos = pos + TAB_PADDING;
-    pos += dc.drawBitmap(pos, 0, tab_foreground, 1,
+    pos += dc.drawBitmap(pos, 0,
+            (flags_ & HAS_FOCUS) ? tab_foreground_focus : tab_foreground, 1,
             text_width + (2 * TAB_PADDING),
             DrawContext::FLAG_FROM_PROGMEM);
     // Right tab edge
