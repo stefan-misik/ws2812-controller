@@ -13,7 +13,7 @@ static const uint8_t tab_edge_left[] PROGMEM =
 
 static const uint8_t tab_edge_right[] PROGMEM =
 {
-    0x7f, 0x7f
+    0x7f, 0x7f, 0x7c
 };
 
 static const uint8_t tab_background[] PROGMEM =
@@ -102,7 +102,7 @@ uint8_t TabControl::calculateTabGraphicsWidth() const
     uint8_t width = 0;
 
     // Left and right margin
-    width += sizeof(tab_background) * (TAB_ADD_MARGIN + current_tab_ + 1);
+    width += (2 * TAB_ADD_MARGIN) + (sizeof(tab_background) * current_tab_);
     // Left tab edge
     width += sizeof(tab_edge_left);
     // Left and right padding
@@ -118,16 +118,19 @@ uint8_t TabControl::drawTabs(
         uint8_t text_width) const
 {
     const uint8_t width = dc.drawArea().width();
-    uint8_t pos = 0;
     uint8_t text_pos;
 
-    // Left margin
-    pos += dc.drawBitmap(pos, 0, tab_background, sizeof(tab_background),
-            TAB_ADD_MARGIN + current_tab_,
+    // Background
+    dc.drawBitmap(0, 0, tab_background, sizeof(tab_background),
+            (width / sizeof(tab_background)) + 1,
             DrawContext::FLAG_FROM_PROGMEM);
+
+    uint8_t pos;
+    // Left margin
+    pos = TAB_ADD_MARGIN + (sizeof(tab_background) * current_tab_);
     // Left tab edge
     pos += dc.drawBitmap(pos, 0, tab_edge_left, sizeof(tab_edge_left), 1,
-            DrawContext::FLAG_FROM_PROGMEM);
+            DrawContext::FLAG_FROM_PROGMEM | DrawContext::FLAG_BLEND_OR);
     // Space for the text
     text_pos = pos + TAB_PADDING;
     pos += dc.drawBitmap(pos, 0, tab_foreground, 1,
@@ -135,11 +138,7 @@ uint8_t TabControl::drawTabs(
             DrawContext::FLAG_FROM_PROGMEM);
     // Right tab edge
     pos += dc.drawBitmap(pos, 0, tab_edge_right, sizeof(tab_edge_right), 1,
-            DrawContext::FLAG_FROM_PROGMEM);
-    // Right margin
-    dc.drawBitmap(pos, 0, tab_background, sizeof(tab_background),
-            (width - pos) / sizeof(tab_background),
-            DrawContext::FLAG_FROM_PROGMEM);
+            DrawContext::FLAG_FROM_PROGMEM | DrawContext::FLAG_BLEND_OR);
 
     return text_pos;
 }

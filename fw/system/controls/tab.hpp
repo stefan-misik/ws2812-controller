@@ -41,7 +41,7 @@ public:
     void setText(const char * new_text) { text_ = new_text; }
 
 private:
-    static constexpr uint8_t TAB_ADD_MARGIN = 1;
+    static constexpr uint8_t TAB_ADD_MARGIN = 4;
     static constexpr uint8_t TAB_PADDING = 2;
 
     uint8_t tab_count_ = 1;
