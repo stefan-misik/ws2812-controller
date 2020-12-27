@@ -13,6 +13,20 @@ uint8_t ControlScreen::processEvent(
 
 void ControlScreen::draw(system::DrawContext & dc, uint8_t time)
 {
+    system::DrawContext::TextProperties tp;
+
+    char buffer[16];
+
+    for (uint8_t j = 0; j < 5; ++j)
+    {
+        for (uint8_t i = 0; i < 14; ++i)
+        {
+            buffer[i] = 0x20 + 26 + (i + (j * 14));
+        }
+        buffer[14] = '\0';
+
+        dc.drawText(0, j, buffer, &tp);
+    }
 }
 
 }  // namespace application
