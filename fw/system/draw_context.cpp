@@ -7,6 +7,29 @@
 namespace system
 {
 
+typedef void (*BlendHandler)(uint8_t * draw_out, uint8_t graphics);
+
+namespace blend
+{
+
+void Set(uint8_t * draw_out, uint8_t graphics) { *draw_out = graphics; }
+void Or(uint8_t * draw_out, uint8_t graphics) { *draw_out |= graphics; }
+void And(uint8_t * draw_out, uint8_t graphics) { *draw_out &= graphics; }
+void Xor(uint8_t * draw_out, uint8_t graphics) { *draw_out ^= graphics; }
+void NotSet(uint8_t * draw_out, uint8_t graphics) { *draw_out = ~graphics; }
+void NotOr(uint8_t * draw_out, uint8_t graphics) { *draw_out |= ~graphics; }
+void NotAnd(uint8_t * draw_out, uint8_t graphics) { *draw_out &= ~graphics; }
+void NotXor(uint8_t * draw_out, uint8_t graphics) { *draw_out ^= ~graphics; }
+
+}  // namespace blend
+
+static const BlendHandler blend_handlers[] PROGMEM =
+{
+    blend::Set, blend::Or, blend::And, blend::Xor,
+    blend::NotSet, blend::NotOr, blend::NotAnd, blend::NotXor,
+};
+
+
 size_t DrawContext::measureTextWidth(const char * text, uint8_t flags)
 {
     size_t length = 0;
@@ -79,8 +102,10 @@ size_t DrawContext::drawText(
 
     // Start drawing the text
     uint8_t * const draw_end = draw_out + widthWithin(x, width);
-    const uint8_t blend_type  = flags & FLAG_BLEND_MASK;
     char c;
+    const BlendHandler blend_handler =
+            reinterpret_cast<const BlendHandler>(pgm_read_ptr(
+                    blend_handlers + (flags & 0x07)));
     while ('\0' != (c = (flags & FLAG_FROM_PROGMEM ?
             pgm_read_byte(text) :
             *text)))
@@ -116,28 +141,7 @@ size_t DrawContext::drawText(
                     previous = glyph_data;
                 }
             }
-            if (FLAG_INVERT & flags)
-            {
-                current_graphics = ~current_graphics;
-            }
-
-            // Write the graphic data
-            switch (blend_type)
-            {
-            case FLAG_BLEND_SET:
-                *draw_out = current_graphics;
-                break;
-            case FLAG_BLEND_OR:
-                *draw_out |= current_graphics;
-                break;
-            case FLAG_BLEND_AND:
-                *draw_out &= current_graphics;
-                break;
-            case FLAG_BLEND_XOR:
-                *draw_out ^= current_graphics;
-                break;
-            }
-
+            blend_handler(draw_out, current_graphics);
             // Increment the position
             ++draw_out;
             ++glyph_offset;
@@ -147,54 +151,14 @@ size_t DrawContext::drawText(
         if ((FLAG_TEXT_BOLD & flags) && 5 == glyph_offset)
         {
             uint8_t current_graphics = previous;
-            if (FLAG_INVERT & flags)
-            {
-                current_graphics = ~current_graphics;
-            }
-
-            // Write the graphic data
-            switch (blend_type)
-            {
-            case FLAG_BLEND_SET:
-                *draw_out = current_graphics;
-                break;
-            case FLAG_BLEND_OR:
-                *draw_out |= current_graphics;
-                break;
-            case FLAG_BLEND_AND:
-                *draw_out &= current_graphics;
-                break;
-            case FLAG_BLEND_XOR:
-                *draw_out ^= current_graphics;
-                break;
-            }
+            blend_handler(draw_out, current_graphics);
             ++draw_out;
         }
 
         // Glyph space
         {
             uint8_t current_graphics = 0;
-            if (FLAG_INVERT & flags)
-            {
-                current_graphics = ~current_graphics;
-            }
-
-            // Write the graphic data
-            switch (blend_type)
-            {
-            case FLAG_BLEND_SET:
-                *draw_out = current_graphics;
-                break;
-            case FLAG_BLEND_OR:
-                *draw_out |= current_graphics;
-                break;
-            case FLAG_BLEND_AND:
-                *draw_out &= current_graphics;
-                break;
-            case FLAG_BLEND_XOR:
-                *draw_out ^= current_graphics;
-                break;
-            }
+            blend_handler(draw_out, current_graphics);
             ++draw_out;
         }
 
@@ -227,35 +191,16 @@ uint8_t DrawContext::drawBitmap(
         bitmap = bitmap_end - 1;
     }
 
-    const uint8_t blend_type  = flags & FLAG_BLEND_MASK;
+    const BlendHandler blend_handler =
+            reinterpret_cast<const BlendHandler>(pgm_read_ptr(
+                    blend_handlers + (flags & 0x07)));
     while (draw_out != draw_end)
     {
         uint8_t current_graphics = (flags & FLAG_FROM_PROGMEM) ?
                 pgm_read_byte(bitmap) :
                 *bitmap;
 
-        if (FLAG_INVERT & flags)
-        {
-            current_graphics = ~current_graphics;
-        }
-
-        // Write the graphic data
-        switch (blend_type)
-        {
-        case FLAG_BLEND_SET:
-            *draw_out = current_graphics;
-            break;
-        case FLAG_BLEND_OR:
-            *draw_out |= current_graphics;
-            break;
-        case FLAG_BLEND_AND:
-            *draw_out &= current_graphics;
-            break;
-        case FLAG_BLEND_XOR:
-            *draw_out ^= current_graphics;
-            break;
-        }
-
+        blend_handler(draw_out, current_graphics);
         // Increment the position
         ++draw_out;
         bitmap += step;
