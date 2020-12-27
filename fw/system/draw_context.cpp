@@ -50,10 +50,12 @@ void DrawContext::changeSubDrawArea(
         *original_draw_area = draw_area_;
     }
 
-    draw_area_.left += sub_draw_area.left;
-    draw_area_.top += sub_draw_area.top;
+    // Update these first to avoid modifying left and top edges
     draw_area_.right = draw_area_.left + sub_draw_area.right;
     draw_area_.bottom = draw_area_.top + sub_draw_area.bottom;
+    // Update these last
+    draw_area_.left = draw_area_.left + sub_draw_area.left;
+    draw_area_.top = draw_area_.top + sub_draw_area.top;
 }
 
 uint8_t * DrawContext::dataAt(uint8_t x, uint8_t y) const

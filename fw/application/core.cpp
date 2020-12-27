@@ -88,7 +88,7 @@ void Core::draw(system::DrawContext & dc, uint8_t time)
 
     dc.changeSubDrawArea(
             system::Rectangle{0, 1,
-        system::DISPLAY_HEIGHT, system::DISPLAY_HEIGHT});
+        system::DISPLAY_WIDTH, system::DISPLAY_HEIGHT});
     screen_union_.activeScreenObject()->draw(dc, time);
 }
 

@@ -27,8 +27,7 @@ public:
         FLAG_INVERT = (1 << 2),
         FLAG_FROM_PROGMEM = (1 << 3),
         FLAG_TEXT_BOLD = (1 << 4),
-        FLAG_BITMAP_REVERSE = (1 << 4),
-        FLAG_TEXT_PROPORTIONAL_FONT = (1 << 5)
+        FLAG_BITMAP_REVERSE = (1 << 4)
     };
 
     struct TextProperties;
