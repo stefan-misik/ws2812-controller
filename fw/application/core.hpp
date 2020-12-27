@@ -31,6 +31,7 @@ public:
 
 private:
     static Text text_;
+    bool clean_screen_ = true;
 
     system::TabControl screen_control_;
     ScreenUnion screen_union_;

@@ -30,12 +30,14 @@ uint8_t Core::processEvent(
                 screen_union_.changeScreen(ScreenUnion::Screen::CONTROL);
                 screen_control_.setText(
                         text_.getProgmemText(Text::Phrase::CONTROL_SCREEN));
+                clean_screen_ = true;
                 break;
 
             case 1:
                 screen_union_.changeScreen(ScreenUnion::Screen::SETTINGS);
                 screen_control_.setText(
                         text_.getProgmemText(Text::Phrase::SETTINGS_SCREEN));
+                clean_screen_ = true;
                 break;
             }
             break;
@@ -89,6 +91,12 @@ void Core::draw(system::DrawContext & dc, uint8_t time)
     dc.changeSubDrawArea(
             system::Rectangle{0, 1,
         system::DISPLAY_WIDTH, system::DISPLAY_HEIGHT});
+
+    if (clean_screen_)
+    {
+        system::DisplayObject::draw(dc, time);
+    }
+
     screen_union_.activeScreenObject()->draw(dc, time);
 }
 
