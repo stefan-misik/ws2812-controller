@@ -69,7 +69,7 @@ uint8_t TabControl::processEvent(
     return EVENT_NOT_PROCESSED;
 }
 
-void TabControl::draw(system::DrawContext & dc, uint8_t time)
+void TabControl::draw(system::DrawContext & dc)
 {
     flags_ &= ~Control::PENDING_REDRAW;
 

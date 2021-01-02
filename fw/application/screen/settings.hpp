@@ -20,7 +20,7 @@ public:
             system::Event * new_event) override;
 
     /** @copydoc system::DisplayObject::draw() */
-    void draw(system::DrawContext & dc, uint8_t time) override;
+    void draw(system::DrawContext & dc) override;
 };
 
 }  // namespace application

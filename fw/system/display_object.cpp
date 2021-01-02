@@ -8,7 +8,7 @@ uint8_t DisplayObject::processEvent(const Event & event, Event * new_event)
     return EventResult::EVENT_NOT_PROCESSED;
 }
 
-void DisplayObject::draw(DrawContext & dc, uint8_t time)
+void DisplayObject::draw(DrawContext & dc)
 {
     const uint8_t width = dc.drawArea().width();
     const uint8_t height = dc.drawArea().height();

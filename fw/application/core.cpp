@@ -76,7 +76,7 @@ uint8_t Core::processEvent(
     return system::DisplayObject::EVENT_PROCESSED;
 }
 
-void Core::draw(system::DrawContext & dc, uint8_t time)
+void Core::draw(system::DrawContext & dc)
 {
     // Draw screen controls, if necessary
     if (screen_control_.isFlagSet(system::TabControl::PENDING_REDRAW))
@@ -84,7 +84,7 @@ void Core::draw(system::DrawContext & dc, uint8_t time)
         system::Rectangle orig;
         dc.changeSubDrawArea(system::Rectangle{0, 0, system::DISPLAY_WIDTH, 1},
                 &orig);
-        screen_control_.draw(dc, time);
+        screen_control_.draw(dc);
         dc.setDrawArea(orig);
     }
 
@@ -94,10 +94,10 @@ void Core::draw(system::DrawContext & dc, uint8_t time)
 
     if (clean_screen_)
     {
-        system::DisplayObject::draw(dc, time);
+        system::DisplayObject::draw(dc);
     }
 
-    screen_union_.activeScreenObject()->draw(dc, time);
+    screen_union_.activeScreenObject()->draw(dc);
 }
 
 

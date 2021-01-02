@@ -35,6 +35,14 @@ struct Event
         RESERVED = 0,
 
         /**
+         * @brief Periodic event used. e.g. to animate graphic interface
+         *
+         * * `sdata` - Unused, should be 0
+         * * `ldata` - Running overflowing timer in hundredth of a seconds
+         */
+        PERIODIC,
+
+        /**
          * @brief Key press or repeated key press detected
          *
          * * `sdata` - Key that was pressed

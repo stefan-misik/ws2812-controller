@@ -11,7 +11,7 @@ uint8_t SettingsScreen::processEvent(
     return system::DisplayObject::EVENT_NOT_PROCESSED;
 }
 
-void SettingsScreen::draw(system::DrawContext & dc, uint8_t time)
+void SettingsScreen::draw(system::DrawContext & dc)
 {
     system::DrawContext::TextProperties tp;
 

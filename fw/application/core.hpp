@@ -25,7 +25,7 @@ public:
             const system::Event & event,
             system::Event * new_event) override;
     /** @copydoc system::DisplayObject::draw() */
-    void draw(system::DrawContext & dc, uint8_t time) override;
+    void draw(system::DrawContext & dc) override;
 
     static Text & text() { return text_; }
 

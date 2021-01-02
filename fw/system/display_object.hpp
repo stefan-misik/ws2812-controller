@@ -49,9 +49,8 @@ public:
      * to facilitate drawing animations.
      *
      * @param dc Draw context to draw on
-     * @param time Binary time keeping counter in 10 ms increments
      */
-    virtual void draw(DrawContext & dc, uint8_t time);
+    virtual void draw(DrawContext & dc);
 
     virtual ~DisplayObject() = default;
 };

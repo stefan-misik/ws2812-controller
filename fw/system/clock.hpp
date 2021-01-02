@@ -26,11 +26,11 @@ public:
      *
      * @return Current value of 10 millisecond-time
      */
-    uint8_t hunderethSeconds() const { return hundreth_seconds_; }
+    uintptr_t hunderethSeconds() const { return hundreth_seconds_; }
 
 private:
     uint8_t previous_increment_;
-    uint8_t hundreth_seconds_;
+    uintptr_t hundreth_seconds_;
     uint64_t timestamp_;
 
     /**

@@ -29,7 +29,7 @@ public:
             const system::Event & event,
             system::Event * new_event) override;
     /** @copydoc system::DisplayObject::draw() */
-    void draw(system::DrawContext & dc, uint8_t time) override;
+    void draw(system::DrawContext & dc) override;
 
     uint8_t tabCount() const { return tab_count_; }
     void setTabCount(uint8_t new_count) { tab_count_ = new_count; }

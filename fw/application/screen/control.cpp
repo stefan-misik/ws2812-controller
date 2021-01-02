@@ -11,7 +11,7 @@ uint8_t ControlScreen::processEvent(
     return system::DisplayObject::EVENT_NOT_PROCESSED;
 }
 
-void ControlScreen::draw(system::DrawContext & dc, uint8_t time)
+void ControlScreen::draw(system::DrawContext & dc)
 {
     system::DrawContext::TextProperties tp;
 

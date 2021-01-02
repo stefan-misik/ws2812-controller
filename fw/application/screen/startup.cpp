@@ -11,7 +11,7 @@ uint8_t StartupScreen::processEvent(
     return system::DisplayObject::EVENT_NOT_PROCESSED;
 }
 
-void StartupScreen::draw(system::DrawContext & dc, uint8_t time)
+void StartupScreen::draw(system::DrawContext & dc)
 {
 }
 
