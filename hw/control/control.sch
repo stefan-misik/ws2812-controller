@@ -1,0 +1,301 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 7
+Title "WS2812 Controller"
+Date "2021-09-16"
+Rev "1"
+Comp "Stefan Misik"
+Comment1 "Main Conectors"
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Sheet
+S 3350 2950 1350 600 
+U 6147396B
+F0 "Main Power" 50
+F1 "main_power.sch" 50
+F2 "VIN" I L 3350 3150 50 
+F3 "VOUT" O R 4700 3150 50 
+$EndSheet
+$Sheet
+S 6200 2150 1300 1700
+U 6148E1AC
+F0 "CPU" 50
+F1 "cpu.sch" 50
+F2 "LED0" O L 6200 2600 50 
+F3 "LED1" O L 6200 2700 50 
+F4 "LED_EN0" O L 6200 2350 50 
+F5 "LED_EN1" O L 6200 2450 50 
+F6 "RS232_TX" O R 7500 3650 50 
+F7 "RS232_RX" I R 7500 3550 50 
+$EndSheet
+$Comp
+L power:+5V #PWR0101
+U 1 1 614A9497
+P 5050 3000
+F 0 "#PWR0101" H 5050 2850 50  0001 C CNN
+F 1 "+5V" H 5065 3173 50  0000 C CNN
+F 2 "" H 5050 3000 50  0001 C CNN
+F 3 "" H 5050 3000 50  0001 C CNN
+	1    5050 3000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5050 3000 5050 3150
+Wire Wire Line
+	5050 3150 4700 3150
+$Sheet
+S 3350 3950 1350 550 
+U 614AB031
+F0 "LED0 Power" 50
+F1 "led_power.sch" 50
+F2 "VIN" I L 3350 4100 50 
+F3 "EN_3V3" I R 4700 4350 50 
+F4 "VOUT" O R 4700 4100 50 
+$EndSheet
+$Comp
+L Connector:Barrel_Jack J?
+U 1 1 614AB859
+P 950 2450
+F 0 "J?" H 1007 2775 50  0000 C CNN
+F 1 "Barrel_Jack" H 1007 2684 50  0000 C CNN
+F 2 "" H 1000 2410 50  0001 C CNN
+F 3 "~" H 1000 2410 50  0001 C CNN
+	1    950  2450
+	1    0    0    -1  
+$EndComp
+$Sheet
+S 1500 2250 1100 400 
+U 614ACFF9
+F0 "Input Protection" 50
+F1 "input_protection.sch" 50
+F2 "V_A" I L 1500 2350 50 
+F3 "V_B" I L 1500 2550 50 
+F4 "VOUT" O R 2600 2350 50 
+F5 "GND" O R 2600 2550 50 
+$EndSheet
+Wire Wire Line
+	1250 2350 1500 2350
+Wire Wire Line
+	1250 2550 1500 2550
+Wire Wire Line
+	3150 3150 3350 3150
+Wire Wire Line
+	3150 3150 3150 4100
+Wire Wire Line
+	3150 4100 3350 4100
+$Sheet
+S 3350 4850 1350 550 
+U 614AE8DA
+F0 "LED1 Power" 50
+F1 "led_power.sch" 50
+F2 "VIN" I L 3350 5000 50 
+F3 "EN_3V3" I R 4700 5250 50 
+F4 "VOUT" O R 4700 5000 50 
+$EndSheet
+Connection ~ 3150 4100
+$Sheet
+S 6200 4250 1350 600 
+U 614B1933
+F0 "LED Driver" 50
+F1 "led_driver.sch" 50
+F2 "DATA_3V3_0" I L 6200 4450 50 
+F3 "DATA_3V3_1" I L 6200 4650 50 
+F4 "DATA_OUT0" O R 7550 4450 50 
+F5 "DATA_OUT1" O R 7550 4650 50 
+$EndSheet
+$Comp
+L Connector:Screw_Terminal_01x03 J?
+U 1 1 614B315B
+P 8150 4200
+F 0 "J?" H 8230 4242 50  0000 L CNN
+F 1 "Screw_Terminal_01x03" H 8230 4151 50  0000 L CNN
+F 2 "" H 8150 4200 50  0001 C CNN
+F 3 "~" H 8150 4200 50  0001 C CNN
+	1    8150 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x03 J?
+U 1 1 614B768A
+P 8150 4900
+F 0 "J?" H 8300 4850 50  0000 C CNN
+F 1 "Screw_Terminal_01x03" H 8650 5000 50  0000 C CNN
+F 2 "" H 8150 4900 50  0001 C CNN
+F 3 "~" H 8150 4900 50  0001 C CNN
+	1    8150 4900
+	1    0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR0102
+U 1 1 614C271E
+P 8600 4550
+F 0 "#PWR0102" H 8600 4300 50  0001 C CNN
+F 1 "GND" H 8605 4377 50  0000 C CNN
+F 2 "" H 8600 4550 50  0001 C CNN
+F 3 "" H 8600 4550 50  0001 C CNN
+	1    8600 4550
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0103
+U 1 1 614F1177
+P 2800 2700
+F 0 "#PWR0103" H 2800 2450 50  0001 C CNN
+F 1 "GND" H 2805 2527 50  0000 C CNN
+F 2 "" H 2800 2700 50  0001 C CNN
+F 3 "" H 2800 2700 50  0001 C CNN
+	1    2800 2700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2800 2700 2800 2550
+Wire Wire Line
+	2800 2550 2600 2550
+Wire Wire Line
+	3150 3150 3150 2350
+Wire Wire Line
+	3150 2350 2600 2350
+Connection ~ 3150 3150
+Entry Wire Line
+	5750 2800 5850 2700
+Entry Wire Line
+	5750 2700 5850 2600
+Entry Wire Line
+	5750 4350 5850 4450
+Entry Wire Line
+	5750 4550 5850 4650
+Text Label 5750 2900 1    50   ~ 0
+LED[0..1]
+Text Label 5900 2700 0    50   ~ 0
+LED1
+Text Label 5900 2600 0    50   ~ 0
+LED0
+Text Label 5900 4450 0    50   ~ 0
+LED0
+Text Label 5900 4650 0    50   ~ 0
+LED1
+Wire Wire Line
+	5850 2600 6200 2600
+Wire Wire Line
+	5850 2700 6200 2700
+Entry Wire Line
+	5450 2450 5550 2350
+Entry Wire Line
+	5450 2550 5550 2450
+Wire Wire Line
+	5550 2350 6200 2350
+Wire Wire Line
+	5550 2450 6200 2450
+Text Label 5600 2450 0    50   ~ 0
+LED_EN1
+Text Label 5600 2350 0    50   ~ 0
+LED_EN0
+Entry Wire Line
+	5350 4350 5450 4250
+Entry Wire Line
+	5350 5250 5450 5150
+Wire Wire Line
+	4700 4350 5350 4350
+Text Label 5300 4350 2    50   ~ 0
+LED_EN0
+Text Label 5300 5250 2    50   ~ 0
+LED_EN1
+Wire Wire Line
+	4700 4100 7950 4100
+Text Label 5450 2800 1    50   ~ 0
+LED_EN[0..1]
+Wire Wire Line
+	3150 5000 3350 5000
+Wire Wire Line
+	3150 4100 3150 5000
+Wire Wire Line
+	5350 5250 4700 5250
+Wire Wire Line
+	8600 4550 7950 4550
+Wire Wire Line
+	7950 4550 7950 4300
+Wire Wire Line
+	7950 4550 7950 4800
+Connection ~ 7950 4550
+Wire Wire Line
+	5850 4650 6200 4650
+Wire Wire Line
+	5850 4450 6200 4450
+Wire Wire Line
+	7550 4450 7750 4450
+Wire Wire Line
+	7750 4450 7750 4200
+Wire Wire Line
+	7750 4200 7950 4200
+Wire Wire Line
+	7550 4650 7750 4650
+Wire Wire Line
+	7750 4650 7750 4900
+Wire Wire Line
+	7750 4900 7950 4900
+Wire Wire Line
+	4700 5000 7950 5000
+$Comp
+L Connector:Micro_SD_Card J?
+U 1 1 6151FF1A
+P 9250 1600
+F 0 "J?" H 9200 2317 50  0000 C CNN
+F 1 "Micro_SD_Card" H 9200 2226 50  0000 C CNN
+F 2 "" H 10400 1900 50  0001 C CNN
+F 3 "http://katalog.we-online.de/em/datasheet/693072010801.pdf" H 9250 1600 50  0001 C CNN
+	1    9250 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:DB9_Female_MountingHoles J?
+U 1 1 6152356B
+P 9950 3700
+F 0 "J?" H 10130 3702 50  0000 L CNN
+F 1 "DB9_Female_MountingHoles" H 10130 3611 50  0000 L CNN
+F 2 "" H 9950 3700 50  0001 C CNN
+F 3 " ~" H 9950 3700 50  0001 C CNN
+	1    9950 3700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7500 3550 9550 3550
+Wire Wire Line
+	9550 3550 9550 3500
+Wire Wire Line
+	9550 3500 9650 3500
+Wire Wire Line
+	7500 3650 9550 3650
+Wire Wire Line
+	9550 3650 9550 3700
+Wire Wire Line
+	9550 3700 9650 3700
+$Comp
+L power:GND #PWR?
+U 1 1 61537FB3
+P 9550 4500
+F 0 "#PWR?" H 9550 4250 50  0001 C CNN
+F 1 "GND" H 9555 4327 50  0000 C CNN
+F 2 "" H 9550 4500 50  0001 C CNN
+F 3 "" H 9550 4500 50  0001 C CNN
+	1    9550 4500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9550 4100 9650 4100
+Wire Wire Line
+	9550 4100 9550 4300
+Wire Wire Line
+	9950 4300 9550 4300
+Wire Bus Line
+	5450 2300 5450 5300
+Wire Bus Line
+	5750 2550 5750 4650
+Connection ~ 9550 4300
+Wire Wire Line
+	9550 4300 9550 4500
+$EndSCHEMATC
