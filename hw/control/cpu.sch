@@ -204,8 +204,4 @@ Wire Wire Line
 	5000 3350 6850 3350
 Wire Wire Line
 	5000 3450 6850 3450
-Text HLabel 9450 5000 2    50   Output ~ 0
-RS232_TX
-Text HLabel 9450 5100 2    50   Input ~ 0
-RS232_RX
 $EndSCHEMATC

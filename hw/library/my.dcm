@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP BAV199TP
+D Surface Mount Low Leakage Diode, SOT-23
+K Diode
+F https://www.diodes.com/assets/Datasheets/ds30232.pdf
+$ENDCMP
+#
+#End Doc Library

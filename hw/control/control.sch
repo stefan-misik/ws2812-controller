@@ -30,8 +30,6 @@ F2 "LED0" O L 6200 2600 50
 F3 "LED1" O L 6200 2700 50 
 F4 "LED_EN0" O L 6200 2350 50 
 F5 "LED_EN1" O L 6200 2450 50 
-F6 "RS232_TX" O R 7500 3650 50 
-F7 "RS232_RX" I R 7500 3550 50 
 $EndSheet
 $Comp
 L power:+5V #PWR0101
@@ -251,51 +249,8 @@ F 3 "http://katalog.we-online.de/em/datasheet/693072010801.pdf" H 9250 1600 50  
 	1    9250 1600
 	1    0    0    -1  
 $EndComp
-$Comp
-L Connector:DB9_Female_MountingHoles J?
-U 1 1 6152356B
-P 9950 3700
-F 0 "J?" H 10130 3702 50  0000 L CNN
-F 1 "DB9_Female_MountingHoles" H 10130 3611 50  0000 L CNN
-F 2 "" H 9950 3700 50  0001 C CNN
-F 3 " ~" H 9950 3700 50  0001 C CNN
-	1    9950 3700
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7500 3550 9550 3550
-Wire Wire Line
-	9550 3550 9550 3500
-Wire Wire Line
-	9550 3500 9650 3500
-Wire Wire Line
-	7500 3650 9550 3650
-Wire Wire Line
-	9550 3650 9550 3700
-Wire Wire Line
-	9550 3700 9650 3700
-$Comp
-L power:GND #PWR?
-U 1 1 61537FB3
-P 9550 4500
-F 0 "#PWR?" H 9550 4250 50  0001 C CNN
-F 1 "GND" H 9555 4327 50  0000 C CNN
-F 2 "" H 9550 4500 50  0001 C CNN
-F 3 "" H 9550 4500 50  0001 C CNN
-	1    9550 4500
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	9550 4100 9650 4100
-Wire Wire Line
-	9550 4100 9550 4300
-Wire Wire Line
-	9950 4300 9550 4300
 Wire Bus Line
 	5450 2300 5450 5300
 Wire Bus Line
 	5750 2550 5750 4650
-Connection ~ 9550 4300
-Wire Wire Line
-	9550 4300 9550 4500
 $EndSCHEMATC
