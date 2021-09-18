@@ -6,4 +6,16 @@ K Diode
 F https://www.diodes.com/assets/Datasheets/ds30232.pdf
 $ENDCMP
 #
+$CMP LM2678T-ADJ
+D 5V 5A 260kHz Step-Down Voltage Regulator, TO-220-7
+K Step-Down Voltage Regulator 5V 5A
+F https://www.ti.com/lit/ds/symlink/lm2678.pdf
+$ENDCMP
+#
+$CMP Q_PMOS_SSSGDDDD
+D P-MOSFET transistor, drain/source/gate
+K transistor PMOS P-MOS P-MOSFET
+F ~
+$ENDCMP
+#
 #End Doc Library
