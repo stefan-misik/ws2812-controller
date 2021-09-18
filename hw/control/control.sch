@@ -238,17 +238,6 @@ Wire Wire Line
 	7750 4900 7950 4900
 Wire Wire Line
 	4700 5000 7950 5000
-$Comp
-L Connector:Micro_SD_Card J?
-U 1 1 6151FF1A
-P 9250 1600
-F 0 "J?" H 9200 2317 50  0000 C CNN
-F 1 "Micro_SD_Card" H 9200 2226 50  0000 C CNN
-F 2 "" H 10400 1900 50  0001 C CNN
-F 3 "http://katalog.we-online.de/em/datasheet/693072010801.pdf" H 9250 1600 50  0001 C CNN
-	1    9250 1600
-	1    0    0    -1  
-$EndComp
 Wire Bus Line
 	5450 2300 5450 5300
 Wire Bus Line
