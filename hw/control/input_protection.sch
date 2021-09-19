@@ -4,11 +4,11 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 5 7
-Title ""
-Date ""
-Rev ""
-Comp ""
-Comment1 ""
+Title "WS2812 Controller"
+Date "2021-09-16"
+Rev "1"
+Comp "Stefan Misik"
+Comment1 "Input Protection"
 Comment2 ""
 Comment3 ""
 Comment4 ""
@@ -24,10 +24,10 @@ GND
 Wire Wire Line
 	3450 4500 3750 4500
 $Comp
-L my:Q_PMOS_SSSGDDDD Q?
+L my:Q_PMOS_SSSGDDDD Q501
 U 1 1 614E912B
 P 5150 3600
-F 0 "Q?" V 5775 3600 50  0000 C CNN
+F 0 "Q501" V 5775 3600 50  0000 C CNN
 F 1 "AOSP21357 ???" V 5684 3600 50  0000 C CNN
 F 2 "" H 5350 3700 50  0001 C CNN
 F 3 "~" H 5150 3600 50  0001 C CNN
@@ -68,10 +68,10 @@ Wire Wire Line
 	5450 3300 5350 3300
 Connection ~ 5450 3400
 $Comp
-L Device:R R?
+L Device:R R501
 U 1 1 614EC7F7
 P 5150 4200
-F 0 "R?" H 5220 4246 50  0000 L CNN
+F 0 "R501" H 5220 4246 50  0000 L CNN
 F 1 "10K" H 5220 4155 50  0000 L CNN
 F 2 "" V 5080 4200 50  0001 C CNN
 F 3 "~" H 5150 4200 50  0001 C CNN
@@ -86,10 +86,10 @@ Wire Wire Line
 Wire Wire Line
 	5150 4050 5150 3900
 $Comp
-L Device:D_Zener D?
+L Device:D_Zener D501
 U 1 1 614ED589
 P 5650 3750
-F 0 "D?" V 5604 3830 50  0000 L CNN
+F 0 "D501" V 5604 3830 50  0000 L CNN
 F 1 "D_Zener" V 5695 3830 50  0000 L CNN
 F 2 "" H 5650 3750 50  0001 C CNN
 F 3 "~" H 5650 3750 50  0001 C CNN
@@ -106,17 +106,6 @@ Wire Wire Line
 Connection ~ 5650 3500
 Wire Wire Line
 	5650 3500 6500 3500
-$Comp
-L Diode:SD24_SOD323 D?
-U 1 1 61462F0A
-P 3750 3950
-F 0 "D?" V 3704 4029 50  0000 L CNN
-F 1 "SD24_SOD323" V 3795 4029 50  0000 L CNN
-F 2 "Diode_SMD:D_SOD-323" H 3750 3750 50  0001 C CNN
-F 3 "https://www.littelfuse.com/~/media/electronics/datasheets/tvs_diode_arrays/littelfuse_tvs_diode_array_sd_c_datasheet.pdf.pdf" H 3750 3950 50  0001 C CNN
-	1    3750 3950
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	3750 3800 3750 3500
 Connection ~ 3750 3500
@@ -128,10 +117,10 @@ Connection ~ 3750 4500
 Wire Wire Line
 	3750 4500 4550 4500
 $Comp
-L Device:C C?
+L Device:C C501
 U 1 1 61464907
 P 4550 3950
-F 0 "C?" H 4665 3996 50  0000 L CNN
+F 0 "C501" H 4665 3996 50  0000 L CNN
 F 1 "C" H 4665 3905 50  0000 L CNN
 F 2 "" H 4588 3800 50  0001 C CNN
 F 3 "~" H 4550 3950 50  0001 C CNN
@@ -148,4 +137,15 @@ Wire Wire Line
 Connection ~ 4550 4500
 Wire Wire Line
 	4550 4500 5150 4500
+$Comp
+L Device:D_TVS D502
+U 1 1 6148FC75
+P 3750 3950
+F 0 "D502" V 3704 4030 50  0000 L CNN
+F 1 "D_TVS" V 3795 4030 50  0000 L CNN
+F 2 "" H 3750 3950 50  0001 C CNN
+F 3 "~" H 3750 3950 50  0001 C CNN
+	1    3750 3950
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC
