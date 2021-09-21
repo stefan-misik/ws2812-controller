@@ -3,9 +3,9 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 5 7
+Sheet 5 9
 Title "WS2812 Controller"
-Date "2021-09-16"
+Date "2021-09-21"
 Rev "1"
 Comp "Stefan Misik"
 Comment1 "Input Protection"
@@ -86,10 +86,10 @@ Wire Wire Line
 Wire Wire Line
 	5150 4050 5150 3900
 $Comp
-L Device:D_Zener D501
+L Device:D_Zener D502
 U 1 1 614ED589
 P 5650 3750
-F 0 "D501" V 5604 3830 50  0000 L CNN
+F 0 "D502" V 5604 3830 50  0000 L CNN
 F 1 "D_Zener" V 5695 3830 50  0000 L CNN
 F 2 "" H 5650 3750 50  0001 C CNN
 F 3 "~" H 5650 3750 50  0001 C CNN
@@ -138,10 +138,10 @@ Connection ~ 4550 4500
 Wire Wire Line
 	4550 4500 5150 4500
 $Comp
-L Device:D_TVS D502
+L Device:D_TVS D501
 U 1 1 6148FC75
 P 3750 3950
-F 0 "D502" V 3704 4030 50  0000 L CNN
+F 0 "D501" V 3704 4030 50  0000 L CNN
 F 1 "D_TVS" V 3795 4030 50  0000 L CNN
 F 2 "" H 3750 3950 50  0001 C CNN
 F 3 "~" H 3750 3950 50  0001 C CNN

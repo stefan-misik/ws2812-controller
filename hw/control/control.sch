@@ -3,9 +3,9 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 7
+Sheet 1 9
 Title "WS2812 Controller"
-Date "2021-09-16"
+Date "2021-09-21"
 Rev "1"
 Comp "Stefan Misik"
 Comment1 "Main Conectors"
