@@ -97,7 +97,7 @@ U 1 1 614B315B
 P 9200 4400
 F 0 "J102" H 9280 4442 50  0000 L CNN
 F 1 "Screw_Terminal_01x03" H 9280 4351 50  0000 L CNN
-F 2 "" H 9200 4400 50  0001 C CNN
+F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3_1x03_P5.00mm_Horizontal" H 9200 4400 50  0001 C CNN
 F 3 "~" H 9200 4400 50  0001 C CNN
 	1    9200 4400
 	1    0    0    -1  
@@ -108,7 +108,7 @@ U 1 1 614B768A
 P 9200 5100
 F 0 "J103" H 9350 5050 50  0000 C CNN
 F 1 "Screw_Terminal_01x03" H 9700 5200 50  0000 C CNN
-F 2 "" H 9200 5100 50  0001 C CNN
+F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3_1x03_P5.00mm_Horizontal" H 9200 5100 50  0001 C CNN
 F 3 "~" H 9200 5100 50  0001 C CNN
 	1    9200 5100
 	1    0    0    1   
@@ -225,7 +225,7 @@ U 1 1 615338F7
 P 1350 2600
 F 0 "J101" H 1268 2817 50  0000 C CNN
 F 1 "Screw_Terminal_01x02" H 1268 2726 50  0000 C CNN
-F 2 "" H 1350 2600 50  0001 C CNN
+F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.00mm_Horizontal" H 1350 2600 50  0001 C CNN
 F 3 "~" H 1350 2600 50  0001 C CNN
 	1    1350 2600
 	-1   0    0    -1  
