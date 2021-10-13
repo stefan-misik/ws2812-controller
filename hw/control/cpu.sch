@@ -209,7 +209,7 @@ AR Path="/61490BF2" Ref="J?"  Part="1"
 AR Path="/6148E1AC/61490BF2" Ref="J304"  Part="1" 
 F 0 "J304" H 3150 7417 50  0000 C CNN
 F 1 "Micro_SD_Card" H 3150 7326 50  0000 C CNN
-F 2 "" H 4350 7000 50  0001 C CNN
+F 2 "my:micro_sd_card" H 4350 7000 50  0001 C CNN
 F 3 "http://katalog.we-online.de/em/datasheet/693072010801.pdf" H 3200 6700 50  0001 C CNN
 	1    3200 6700
 	1    0    0    -1  
