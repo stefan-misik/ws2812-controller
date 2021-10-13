@@ -335,28 +335,6 @@ F 3 "~" H 1400 1200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C C303
-U 1 1 61471600
-P 1850 1200
-F 0 "C303" H 1965 1246 50  0000 L CNN
-F 1 "100n" H 1965 1155 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 1888 1050 50  0001 C CNN
-F 3 "~" H 1850 1200 50  0001 C CNN
-	1    1850 1200
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C304
-U 1 1 61472029
-P 2300 1200
-F 0 "C304" H 2415 1246 50  0000 L CNN
-F 1 "100n" H 2415 1155 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 2338 1050 50  0001 C CNN
-F 3 "~" H 2300 1200 50  0001 C CNN
-	1    2300 1200
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:C C301
 U 1 1 61472982
 P 950 1200
@@ -399,16 +377,6 @@ Connection ~ 950  1450
 Wire Wire Line
 	950  1450 950  1350
 Wire Wire Line
-	1400 1450 1850 1450
-Wire Wire Line
-	1850 1450 1850 1350
-Connection ~ 1400 1450
-Wire Wire Line
-	1850 1450 2300 1450
-Wire Wire Line
-	2300 1450 2300 1350
-Connection ~ 1850 1450
-Wire Wire Line
 	950  800  950  950 
 Wire Wire Line
 	950  950  1400 950 
@@ -417,23 +385,13 @@ Wire Wire Line
 Connection ~ 950  950 
 Wire Wire Line
 	950  950  950  1050
-Wire Wire Line
-	1400 950  1850 950 
-Wire Wire Line
-	1850 950  1850 1050
-Connection ~ 1400 950 
-Wire Wire Line
-	1850 950  2300 950 
-Wire Wire Line
-	2300 950  2300 1050
-Connection ~ 1850 950 
 $Comp
 L my:Raspberry_Pi_0_2_3 J303
 U 1 1 614A89DF
 P 6500 3650
 F 0 "J303" H 6900 2250 50  0000 C CNN
 F 1 "Raspberry_Pi_0_2_3" H 7200 2350 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_2x20_P2.54mm_Vertical" H 6500 3650 50  0001 C CNN
+F 2 "Module:Raspberry_Pi_Zero_Socketed_THT_FaceDown_MountingHoles" H 6500 3650 50  0001 C CNN
 F 3 "https://www.raspberrypi.org/documentation/hardware/raspberrypi/schematics/rpi_SCH_3bplus_1p0_reduced.pdf" H 6500 3650 50  0001 C CNN
 	1    6500 3650
 	1    0    0    -1  

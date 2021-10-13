@@ -316,10 +316,44 @@ $EndComp
 Connection ~ 3300 2550
 Wire Wire Line
 	3300 2550 3100 2550
+NoConn ~ 3200 7250
 Wire Bus Line
 	6350 3000 6350 4750
 Wire Bus Line
 	5950 2500 5950 5500
 Wire Bus Line
 	6250 2750 6250 5050
+$Comp
+L Mechanical:MountingHole H101
+U 1 1 6167B012
+P 1800 6400
+F 0 "H101" H 1900 6446 50  0000 L CNN
+F 1 "MountingHole" H 1900 6355 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.7mm_M2.5" H 1800 6400 50  0001 C CNN
+F 3 "~" H 1800 6400 50  0001 C CNN
+	1    1800 6400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H102
+U 1 1 6167B2FA
+P 1800 6650
+F 0 "H102" H 1900 6696 50  0000 L CNN
+F 1 "MountingHole" H 1900 6605 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.7mm_M2.5" H 1800 6650 50  0001 C CNN
+F 3 "~" H 1800 6650 50  0001 C CNN
+	1    1800 6650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H103
+U 1 1 6167B527
+P 2650 6400
+F 0 "H103" H 2750 6446 50  0000 L CNN
+F 1 "MountingHole" H 2750 6355 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.7mm_M2.5" H 2650 6400 50  0001 C CNN
+F 3 "~" H 2650 6400 50  0001 C CNN
+	1    2650 6400
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
