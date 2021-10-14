@@ -316,13 +316,6 @@ $EndComp
 Connection ~ 3300 2550
 Wire Wire Line
 	3300 2550 3100 2550
-NoConn ~ 3200 7250
-Wire Bus Line
-	6350 3000 6350 4750
-Wire Bus Line
-	5950 2500 5950 5500
-Wire Bus Line
-	6250 2750 6250 5050
 $Comp
 L Mechanical:MountingHole H101
 U 1 1 6167B012
@@ -356,4 +349,10 @@ F 3 "~" H 2650 6400 50  0001 C CNN
 	1    2650 6400
 	1    0    0    -1  
 $EndComp
+Wire Bus Line
+	6350 3000 6350 4750
+Wire Bus Line
+	5950 2500 5950 5500
+Wire Bus Line
+	6250 2750 6250 5050
 $EndSCHEMATC

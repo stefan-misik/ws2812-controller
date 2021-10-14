@@ -391,7 +391,7 @@ U 1 1 614A89DF
 P 6500 3650
 F 0 "J303" H 6900 2250 50  0000 C CNN
 F 1 "Raspberry_Pi_0_2_3" H 7200 2350 50  0000 C CNN
-F 2 "Module:Raspberry_Pi_Zero_Socketed_THT_FaceDown_MountingHoles" H 6500 3650 50  0001 C CNN
+F 2 "my:Raspberry_Pi_Zero_Socketed_THT_FaceDown_MountingHoles_No_Courtyard" H 6500 3650 50  0001 C CNN
 F 3 "https://www.raspberrypi.org/documentation/hardware/raspberrypi/schematics/rpi_SCH_3bplus_1p0_reduced.pdf" H 6500 3650 50  0001 C CNN
 	1    6500 3650
 	1    0    0    -1  
