@@ -27,8 +27,8 @@ $Comp
 L my:Q_PMOS_SSSGDDDD Q901
 U 1 1 614E912B
 P 5150 3600
-F 0 "Q901" V 5775 3600 50  0000 C CNN
-F 1 "AOSP21357" V 5684 3600 50  0000 C CNN
+F 0 "Q901" V 5700 3600 50  0000 C CNN
+F 1 "AOSP21357" V 5600 3600 50  0000 C CNN
 F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 5350 3700 50  0001 C CNN
 F 3 "~" H 5150 3600 50  0001 C CNN
 	1    5150 3600
@@ -60,8 +60,6 @@ Wire Wire Line
 Wire Wire Line
 	5450 3400 5350 3400
 Connection ~ 5450 3500
-Wire Wire Line
-	5450 3500 5550 3500
 Wire Wire Line
 	5450 3400 5450 3300
 Wire Wire Line
@@ -120,8 +118,6 @@ Wire Wire Line
 	4200 3500 4200 3800
 Connection ~ 4200 3500
 Wire Wire Line
-	4200 3500 4300 3500
-Wire Wire Line
 	4200 4100 4200 4500
 Connection ~ 4200 4500
 Wire Wire Line
@@ -169,46 +165,50 @@ Wire Wire Line
 Connection ~ 6450 4500
 Wire Wire Line
 	6450 4500 6850 4500
-$Comp
-L Transistor_FET:IRF9540N Q902
-U 1 1 61697CC0
-P 4550 2800
-F 0 "Q902" V 4892 2800 50  0000 C CNN
-F 1 "IRF9540N" V 4801 2800 50  0000 C CNN
-F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 4750 2725 50  0001 L CIN
-F 3 "http://www.irf.com/product-info/datasheets/data/irf9540n.pdf" H 4550 2800 50  0001 L CNN
-	1    4550 2800
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
-	4550 3000 4550 3800
-Wire Wire Line
-	4550 3800 5150 3800
+	4700 3800 5150 3800
 Connection ~ 5150 3800
 Wire Wire Line
 	5150 3800 5150 3750
-Wire Wire Line
-	4350 2700 4300 2700
-Wire Wire Line
-	4300 2700 4300 3500
-Connection ~ 4300 3500
-Wire Wire Line
-	4300 3500 4850 3500
-Wire Wire Line
-	4750 2700 5550 2700
-Wire Wire Line
-	5550 2700 5550 3500
-Connection ~ 5550 3500
-Wire Wire Line
-	5550 3500 5650 3500
-Text Notes 3900 2500 0    50   ~ 0
+Text Notes 4700 2250 0    50   ~ 0
 Alternative\nNot mounted
 Wire Notes Line
-	3850 3100 4850 3100
+	4650 2850 5650 2850
 Wire Notes Line
-	4850 3100 4850 2300
+	5650 2850 5650 2050
 Wire Notes Line
-	4850 2300 3850 2300
+	5650 2050 4650 2050
 Wire Notes Line
-	3850 2300 3850 3100
+	4650 2050 4650 2850
+$Comp
+L Transistor_FET:IRF4905 Q902
+U 1 1 616A4BE0
+P 5150 2650
+F 0 "Q902" V 5492 2650 50  0000 C CNN
+F 1 "IRF4905" V 5401 2650 50  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 5350 2575 50  0001 L CIN
+F 3 "http://www.infineon.com/dgdl/irf4905.pdf?fileId=5546d462533600a4015355e32165197c" H 5150 2650 50  0001 L CNN
+	1    5150 2650
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5450 3500 5650 3500
+Wire Wire Line
+	4200 3500 4850 3500
+Wire Wire Line
+	5350 2550 5450 2550
+Wire Wire Line
+	5450 2550 5450 3300
+Connection ~ 5450 3300
+Wire Wire Line
+	4950 2550 4850 2550
+Wire Wire Line
+	4850 2550 4850 3200
+Connection ~ 4850 3200
+Wire Wire Line
+	5150 2850 5150 2900
+Wire Wire Line
+	5150 2900 4700 2900
+Wire Wire Line
+	4700 2900 4700 3800
 $EndSCHEMATC
