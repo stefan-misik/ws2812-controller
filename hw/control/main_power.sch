@@ -15,7 +15,7 @@ Comment4 ""
 $EndDescr
 Text HLabel 3700 3500 0    50   Input ~ 0
 VIN
-Text HLabel 8350 3700 2    50   Output ~ 0
+Text HLabel 8750 3700 2    50   Output ~ 0
 VOUT
 $Comp
 L Regulator_Switching:LM2596T-ADJ U201
@@ -226,8 +226,6 @@ Wire Wire Line
 Wire Wire Line
 	8000 3700 8000 3950
 Connection ~ 7500 3700
-Wire Wire Line
-	8000 3700 8350 3700
 Connection ~ 8000 3700
 Wire Wire Line
 	7000 2150 7500 2150
@@ -269,4 +267,46 @@ Wire Wire Line
 Connection ~ 4650 3500
 Wire Wire Line
 	4650 3500 5150 3500
+$Comp
+L Device:D_Schottky D?
+U 1 1 616D9BA9
+P 5650 1750
+F 0 "D?" H 5650 1967 50  0000 C CNN
+F 1 "D_Schottky" H 5650 1876 50  0000 C CNN
+F 2 "" H 5650 1750 50  0001 C CNN
+F 3 "~" H 5650 1750 50  0001 C CNN
+	1    5650 1750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5800 1750 8000 1750
+Wire Wire Line
+	8000 1750 8000 3700
+Wire Wire Line
+	8000 3700 8450 3700
+Wire Wire Line
+	5500 1750 4150 1750
+Wire Wire Line
+	4150 1750 4150 3500
+$Comp
+L Diode:1.5KExxA D?
+U 1 1 616DE797
+P 8450 4100
+F 0 "D?" V 8404 4180 50  0000 L CNN
+F 1 "1.5KExxA" V 8495 4180 50  0000 L CNN
+F 2 "Diode_THT:D_DO-201AE_P15.24mm_Horizontal" H 8450 3900 50  0001 C CNN
+F 3 "https://www.vishay.com/docs/88301/15ke.pdf" H 8400 4100 50  0001 C CNN
+	1    8450 4100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8450 3950 8450 3700
+Connection ~ 8450 3700
+Wire Wire Line
+	8450 3700 8750 3700
+Wire Wire Line
+	8450 4250 8450 4500
+Wire Wire Line
+	8450 4500 8000 4500
+Connection ~ 8000 4500
 $EndSCHEMATC

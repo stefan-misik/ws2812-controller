@@ -61,7 +61,7 @@ Wire Wire Line
 	5450 3400 5350 3400
 Connection ~ 5450 3500
 Wire Wire Line
-	5450 3500 5650 3500
+	5450 3500 5550 3500
 Wire Wire Line
 	5450 3400 5450 3300
 Wire Wire Line
@@ -100,7 +100,7 @@ Wire Wire Line
 	5650 3900 5150 3900
 Connection ~ 5150 3900
 Wire Wire Line
-	5150 3900 5150 3750
+	5150 3900 5150 3800
 Wire Wire Line
 	5650 3600 5650 3500
 Connection ~ 5650 3500
@@ -110,22 +110,22 @@ Wire Wire Line
 	3750 3800 3750 3500
 Connection ~ 3750 3500
 Wire Wire Line
-	3750 3500 4550 3500
+	3750 3500 4200 3500
 Wire Wire Line
 	3750 4100 3750 4500
 Connection ~ 3750 4500
 Wire Wire Line
-	3750 4500 4550 4500
+	3750 4500 4200 4500
 Wire Wire Line
-	4550 3500 4550 3800
-Connection ~ 4550 3500
+	4200 3500 4200 3800
+Connection ~ 4200 3500
 Wire Wire Line
-	4550 3500 4850 3500
+	4200 3500 4300 3500
 Wire Wire Line
-	4550 4100 4550 4500
-Connection ~ 4550 4500
+	4200 4100 4200 4500
+Connection ~ 4200 4500
 Wire Wire Line
-	4550 4500 5150 4500
+	4200 4500 5150 4500
 $Comp
 L Device:D_TVS D902
 U 1 1 6148FC75
@@ -140,12 +140,12 @@ $EndComp
 $Comp
 L Device:C C901
 U 1 1 61464907
-P 4550 3950
-F 0 "C901" H 4665 3996 50  0000 L CNN
-F 1 "470n" H 4665 3905 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 4588 3800 50  0001 C CNN
-F 3 "~" H 4550 3950 50  0001 C CNN
-	1    4550 3950
+P 4200 3950
+F 0 "C901" H 4315 3996 50  0000 L CNN
+F 1 "470n" H 4315 3905 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 4238 3800 50  0001 C CNN
+F 3 "~" H 4200 3950 50  0001 C CNN
+	1    4200 3950
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -169,4 +169,46 @@ Wire Wire Line
 Connection ~ 6450 4500
 Wire Wire Line
 	6450 4500 6850 4500
+$Comp
+L Transistor_FET:IRF9540N Q902
+U 1 1 61697CC0
+P 4550 2800
+F 0 "Q902" V 4892 2800 50  0000 C CNN
+F 1 "IRF9540N" V 4801 2800 50  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 4750 2725 50  0001 L CIN
+F 3 "http://www.irf.com/product-info/datasheets/data/irf9540n.pdf" H 4550 2800 50  0001 L CNN
+	1    4550 2800
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4550 3000 4550 3800
+Wire Wire Line
+	4550 3800 5150 3800
+Connection ~ 5150 3800
+Wire Wire Line
+	5150 3800 5150 3750
+Wire Wire Line
+	4350 2700 4300 2700
+Wire Wire Line
+	4300 2700 4300 3500
+Connection ~ 4300 3500
+Wire Wire Line
+	4300 3500 4850 3500
+Wire Wire Line
+	4750 2700 5550 2700
+Wire Wire Line
+	5550 2700 5550 3500
+Connection ~ 5550 3500
+Wire Wire Line
+	5550 3500 5650 3500
+Text Notes 3900 2500 0    50   ~ 0
+Alternative\nNot mounted
+Wire Notes Line
+	3850 3100 4850 3100
+Wire Notes Line
+	4850 3100 4850 2300
+Wire Notes Line
+	4850 2300 3850 2300
+Wire Notes Line
+	3850 2300 3850 3100
 $EndSCHEMATC
