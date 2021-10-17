@@ -1,0 +1,11 @@
+(module Not_Mounted (layer F.Cu) (tedit 616C763A)
+  (fp_text reference g** (at 0 0.5) (layer F.SilkS) hide
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (fp_text value Not_Mounted (at 0 -0.5) (layer F.Fab) hide
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (fp_text user NM (at 0 0) (layer F.SilkS)
+    (effects (font (size 1.2 1) (thickness 0.2)))
+  )
+)
