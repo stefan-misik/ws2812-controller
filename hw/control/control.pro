@@ -1,4 +1,4 @@
-update=10/18/2021 12:57:18
+update=2021 October 19, Tuesday 20:52:00
 version=1
 last_client=kicad
 [general]
@@ -279,7 +279,7 @@ dPairGap=0.25
 dPairViaGap=0.25
 [pcbnew/Netclasses/3]
 Name=Raw Power
-Clearance=0.5
+Clearance=0.6
 TrackWidth=0.3
 ViaDiameter=1
 ViaDrill=0.4
