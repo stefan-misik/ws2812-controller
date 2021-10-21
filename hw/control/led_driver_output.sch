@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 12 13
+Sheet 13 13
 Title "WS2812 Controller"
 Date "2021-10-10"
 Rev "1"
@@ -253,7 +253,7 @@ AR Path="/614B1933/614A1815/616B883B" Ref="D1201"  Part="1"
 AR Path="/614B1933/614AD8B5/616B883B" Ref="D1301"  Part="1" 
 F 0 "D1301" H 5850 3625 50  0000 C CNN
 F 1 "BAT54S" H 5850 3534 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 5925 3525 50  0001 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23_Handsoldering" H 5925 3525 50  0001 L CNN
 F 3 "https://www.diodes.com/assets/Datasheets/ds11005.pdf" H 5730 3400 50  0001 C CNN
 	1    5850 3400
 	1    0    0    -1  
@@ -266,7 +266,7 @@ AR Path="/614B1933/614A1815/616B92EE" Ref="D1202"  Part="1"
 AR Path="/614B1933/614AD8B5/616B92EE" Ref="D1302"  Part="1" 
 F 0 "D1302" H 5850 4375 50  0000 C CNN
 F 1 "BAT54S" H 5850 4284 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 5925 4275 50  0001 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23_Handsoldering" H 5925 4275 50  0001 L CNN
 F 3 "https://www.diodes.com/assets/Datasheets/ds11005.pdf" H 5730 4150 50  0001 C CNN
 	1    5850 4150
 	1    0    0    -1  
