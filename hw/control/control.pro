@@ -1,4 +1,4 @@
-update=10/20/2021 12:19:54
+update=2021 October 26, Tuesday 21:36:59
 version=1
 last_client=kicad
 [general]
@@ -257,7 +257,7 @@ dPairGap=0.25
 dPairViaGap=0.25
 [pcbnew/Netclasses/1]
 Name=Driver Signal
-Clearance=0.5
+Clearance=0.3
 TrackWidth=0.35
 ViaDiameter=1
 ViaDrill=0.4
