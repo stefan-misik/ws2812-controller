@@ -609,14 +609,14 @@ NoConn ~ 7300 2750
 NoConn ~ 7300 2850
 NoConn ~ 7300 3450
 NoConn ~ 7300 3550
-Text HLabel 5500 3250 0    50   Output ~ 0
+Text HLabel 5500 3150 0    50   Output ~ 0
 LED_DATA_~EN~0
 Wire Wire Line
-	5500 3250 5700 3250
-Text HLabel 5500 3150 0    50   Output ~ 0
+	5500 3150 5700 3150
+Text HLabel 5500 3050 0    50   Output ~ 0
 LED_DATA_~EN~1
 Wire Wire Line
-	5500 3150 5700 3150
+	5500 3050 5700 3050
 Text Label 5550 3550 2    50   ~ 0
 ALT_LED_DATA
 Wire Wire Line
@@ -737,8 +737,6 @@ Wire Wire Line
 	8550 4600 8550 4400
 Wire Wire Line
 	8550 4400 8650 4400
-NoConn ~ 5700 3650
-NoConn ~ 5700 3450
 Wire Wire Line
 	7800 4350 7800 4200
 Wire Wire Line
@@ -752,7 +750,6 @@ Wire Wire Line
 	7300 4350 7800 4350
 Wire Wire Line
 	7300 4450 7800 4450
-NoConn ~ 5700 3050
 Text Notes 3450 2600 1    50   ~ 0
 Terminal Connector
 $Comp
@@ -879,4 +876,71 @@ F 3 "" H 10850 1250 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	10850 1250 10850 1350
+$Comp
+L Connector_Generic:Conn_01x07 J306
+U 1 1 6182094F
+P 9950 5500
+F 0 "J306" H 10030 5542 50  0000 L CNN
+F 1 "Conn_01x07" H 10030 5451 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x07_P2.54mm_Vertical" H 9950 5500 50  0001 C CNN
+F 3 "~" H 9950 5500 50  0001 C CNN
+	1    9950 5500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0323
+U 1 1 61827B3D
+P 9600 5050
+F 0 "#PWR0323" H 9600 4900 50  0001 C CNN
+F 1 "+5V" H 9615 5223 50  0000 C CNN
+F 2 "" H 9600 5050 50  0001 C CNN
+F 3 "" H 9600 5050 50  0001 C CNN
+	1    9600 5050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0324
+U 1 1 61828829
+P 9600 5950
+F 0 "#PWR0324" H 9600 5700 50  0001 C CNN
+F 1 "GND" H 9605 5777 50  0000 C CNN
+F 2 "" H 9600 5950 50  0001 C CNN
+F 3 "" H 9600 5950 50  0001 C CNN
+	1    9600 5950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9600 5950 9600 5300
+Wire Wire Line
+	9600 5300 9750 5300
+Wire Wire Line
+	9600 5050 9600 5200
+Wire Wire Line
+	9600 5200 9750 5200
+Wire Wire Line
+	9750 5600 9400 5600
+Wire Wire Line
+	9750 5700 9400 5700
+Wire Wire Line
+	9750 5800 9400 5800
+Text Label 9400 5800 2    50   ~ 0
+IIS_LRC
+Text Label 9400 5700 2    50   ~ 0
+IIS_BCLK
+Text Label 9400 5600 2    50   ~ 0
+IIS_DIN
+Text Notes 10050 5300 0    50   ~ 0
+IIS Audio\nModule
+Wire Wire Line
+	5700 3450 5550 3450
+Text Label 5550 3450 2    50   ~ 0
+IIS_LRC
+Wire Wire Line
+	5700 3250 5500 3250
+Text Label 5500 3250 2    50   ~ 0
+IIS_BCLK
+Wire Wire Line
+	5700 3650 5550 3650
+Text Label 5550 3650 2    50   ~ 0
+IIS_DIN
 $EndSCHEMATC
