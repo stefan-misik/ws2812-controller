@@ -984,17 +984,6 @@ Wire Wire Line
 Wire Wire Line
 	4750 7300 4750 7350
 $Comp
-L Jumper:SolderJumper_2_Open JP303
-U 1 1 6188626D
-P 4400 7300
-F 0 "JP303" H 4400 7505 50  0000 C CNN
-F 1 "SolderJumper_2_Open" H 4400 7414 50  0000 C CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm" H 4400 7300 50  0001 C CNN
-F 3 "~" H 4400 7300 50  0001 C CNN
-	1    4400 7300
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:C C303
 U 1 1 61887BB2
 P 8800 3550
@@ -1280,4 +1269,15 @@ Wire Wire Line
 	1000 3100 1000 3050
 Wire Wire Line
 	1000 3050 1600 3050
+$Comp
+L Jumper:SolderJumper_2_Open JP303
+U 1 1 6188626D
+P 4400 7300
+F 0 "JP303" H 4400 7505 50  0000 C CNN
+F 1 "SolderJumper_2_Open" H 4400 7414 50  0000 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm" H 4400 7300 50  0001 C CNN
+F 3 "~" H 4400 7300 50  0001 C CNN
+	1    4400 7300
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
