@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 9 15
+Sheet 12 15
 Title ""
 Date ""
 Rev ""
@@ -188,5 +188,42 @@ Wire Wire Line
 Text HLabel 6500 3400 2    50   Output ~ 0
 EN
 Wire Wire Line
-	5700 3400 6500 3400
+	5700 3400 5900 3400
+$Comp
+L power:GND #PWR?
+U 1 1 61886956
+P 5900 3900
+AR Path="/614AB031/61886956" Ref="#PWR?"  Part="1" 
+AR Path="/614AE8DA/61886956" Ref="#PWR?"  Part="1" 
+AR Path="/614AB031/618915A5/61886956" Ref="#PWR0903"  Part="1" 
+AR Path="/614AE8DA/618915A5/61886956" Ref="#PWR01203"  Part="1" 
+F 0 "#PWR01203" H 5900 3650 50  0001 C CNN
+F 1 "GND" H 5905 3727 50  0000 C CNN
+F 2 "" H 5900 3900 50  0001 C CNN
+F 3 "" H 5900 3900 50  0001 C CNN
+	1    5900 3900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5900 3900 5900 3800
+$Comp
+L Device:R R?
+U 1 1 6188695E
+P 5900 3650
+AR Path="/614AE8DA/6188695E" Ref="R?"  Part="1" 
+AR Path="/614AB031/6188695E" Ref="R?"  Part="1" 
+AR Path="/614AB031/618915A5/6188695E" Ref="R905"  Part="1" 
+AR Path="/614AE8DA/618915A5/6188695E" Ref="R1205"  Part="1" 
+F 0 "R1205" H 5970 3696 50  0000 L CNN
+F 1 "10K" H 5970 3605 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 5830 3650 50  0001 C CNN
+F 3 "~" H 5900 3650 50  0001 C CNN
+	1    5900 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5900 3500 5900 3400
+Connection ~ 5900 3400
+Wire Wire Line
+	5900 3400 6500 3400
 $EndSCHEMATC
