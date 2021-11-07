@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 8 13
+Sheet 11 15
 Title "WS2812 Controller"
 Date "2021-10-10"
 Rev "1"
@@ -15,8 +15,6 @@ Comment4 ""
 $EndDescr
 Text HLabel 2100 2300 0    50   Input ~ 0
 VIN
-Text HLabel 2700 5750 0    50   Input ~ 0
-EN_3V3
 Text HLabel 9750 2500 2    50   Output ~ 0
 VOUT
 $Comp
@@ -286,173 +284,8 @@ Wire Wire Line
 	5350 1900 5600 1900
 Text Notes 6100 1850 0    50   ~ 0
 Keep feedback wiring\naway from inductor flux
-Text Notes 4800 3500 0    50   ~ 0
+Text Notes 5350 3500 0    50   ~ 0
 Capacitors, diode and groud must be connected\nto the regulator with short leads and traces,\nuse ground plane construction 
-$Comp
-L Device:R R1006
-U 1 1 6147DB7E
-P 3250 5750
-AR Path="/614AE8DA/6147DB7E" Ref="R1006"  Part="1" 
-AR Path="/614AB031/6147DB7E" Ref="R806"  Part="1" 
-F 0 "R1006" V 3043 5750 50  0000 C CNN
-F 1 "R" V 3134 5750 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 3180 5750 50  0001 C CNN
-F 3 "~" H 3250 5750 50  0001 C CNN
-	1    3250 5750
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:Q_NPN_BEC Q1002
-U 1 1 6147EFCD
-P 3750 5750
-AR Path="/614AE8DA/6147EFCD" Ref="Q1002"  Part="1" 
-AR Path="/614AB031/6147EFCD" Ref="Q802"  Part="1" 
-F 0 "Q1002" H 3941 5796 50  0000 L CNN
-F 1 "BC817" H 3941 5705 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23_Handsoldering" H 3950 5850 50  0001 C CNN
-F 3 "~" H 3750 5750 50  0001 C CNN
-	1    3750 5750
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3400 5750 3550 5750
-$Comp
-L Device:Q_PNP_BEC Q1001
-U 1 1 61480A0D
-P 4350 4900
-AR Path="/614AE8DA/61480A0D" Ref="Q1001"  Part="1" 
-AR Path="/614AB031/61480A0D" Ref="Q801"  Part="1" 
-F 0 "Q1001" H 4541 4854 50  0000 L CNN
-F 1 "BC807" H 4541 4945 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23_Handsoldering" H 4550 5000 50  0001 C CNN
-F 3 "~" H 4350 4900 50  0001 C CNN
-	1    4350 4900
-	1    0    0    1   
-$EndComp
-$Comp
-L Device:R R1004
-U 1 1 6148128F
-P 3850 5200
-AR Path="/614AE8DA/6148128F" Ref="R1004"  Part="1" 
-AR Path="/614AB031/6148128F" Ref="R804"  Part="1" 
-F 0 "R1004" H 3920 5246 50  0000 L CNN
-F 1 "R" H 3920 5155 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 3780 5200 50  0001 C CNN
-F 3 "~" H 3850 5200 50  0001 C CNN
-	1    3850 5200
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R1003
-U 1 1 614817B0
-P 3850 4600
-AR Path="/614AE8DA/614817B0" Ref="R1003"  Part="1" 
-AR Path="/614AB031/614817B0" Ref="R803"  Part="1" 
-F 0 "R1003" H 3920 4646 50  0000 L CNN
-F 1 "R" H 3920 4555 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 3780 4600 50  0001 C CNN
-F 3 "~" H 3850 4600 50  0001 C CNN
-	1    3850 4600
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR01004
-U 1 1 61483286
-P 3850 6250
-AR Path="/614AE8DA/61483286" Ref="#PWR01004"  Part="1" 
-AR Path="/614AB031/61483286" Ref="#PWR0804"  Part="1" 
-F 0 "#PWR01004" H 3850 6000 50  0001 C CNN
-F 1 "GND" H 3855 6077 50  0000 C CNN
-F 2 "" H 3850 6250 50  0001 C CNN
-F 3 "" H 3850 6250 50  0001 C CNN
-	1    3850 6250
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3850 5550 3850 5350
-Wire Wire Line
-	3850 5050 3850 4900
-$Comp
-L power:+5V #PWR01003
-U 1 1 61486663
-P 4450 4150
-AR Path="/614AE8DA/61486663" Ref="#PWR01003"  Part="1" 
-AR Path="/614AB031/61486663" Ref="#PWR0803"  Part="1" 
-F 0 "#PWR01003" H 4450 4000 50  0001 C CNN
-F 1 "+5V" H 4465 4323 50  0000 C CNN
-F 2 "" H 4450 4150 50  0001 C CNN
-F 3 "" H 4450 4150 50  0001 C CNN
-	1    4450 4150
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4450 4150 4450 4250
-Wire Wire Line
-	3850 4450 3850 4250
-Wire Wire Line
-	3850 4250 4450 4250
-Connection ~ 4450 4250
-Wire Wire Line
-	4450 4250 4450 4700
-Wire Wire Line
-	4150 4900 3850 4900
-Connection ~ 3850 4900
-Wire Wire Line
-	3850 4900 3850 4750
-$Comp
-L Device:R R1005
-U 1 1 6148D73D
-P 4800 5500
-AR Path="/614AE8DA/6148D73D" Ref="R1005"  Part="1" 
-AR Path="/614AB031/6148D73D" Ref="R805"  Part="1" 
-F 0 "R1005" H 4870 5546 50  0000 L CNN
-F 1 "7K5" H 4870 5455 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 4730 5500 50  0001 C CNN
-F 3 "~" H 4800 5500 50  0001 C CNN
-	1    4800 5500
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4450 5250 4450 5100
-Text Label 5150 5250 0    50   ~ 0
-ENABLE
-Text Label 5000 2750 0    50   ~ 0
-ENABLE
-Wire Wire Line
-	5000 2750 4850 2750
-Wire Wire Line
-	4850 2750 4850 2500
-Wire Wire Line
-	4850 2500 4900 2500
-$Comp
-L Device:R R1007
-U 1 1 614CC1BE
-P 3600 6900
-AR Path="/614AE8DA/614CC1BE" Ref="R1007"  Part="1" 
-AR Path="/614AB031/614CC1BE" Ref="R807"  Part="1" 
-F 0 "R1007" V 3393 6900 50  0000 C CNN
-F 1 "R" V 3484 6900 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 3530 6900 50  0001 C CNN
-F 3 "~" H 3600 6900 50  0001 C CNN
-	1    3600 6900
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	3750 6900 4450 6900
-Wire Wire Line
-	4450 6900 4450 5250
-Connection ~ 4450 5250
-Wire Wire Line
-	4450 5250 4800 5250
-Wire Wire Line
-	2700 5750 2900 5750
-Wire Wire Line
-	3450 6900 2900 6900
-Wire Wire Line
-	2900 6900 2900 5750
-Connection ~ 2900 5750
-Wire Wire Line
-	2900 5750 3100 5750
 Text Notes 7250 4250 0    50   ~ 0
 Vin,max = 24 V\nVout = 6.5 V\nVsat = Rds,on * I = 0.14 Ohm * 5 A = 0.7V\nVd = 0.7 V ??? (shotky diode drop)\n\nE * T = (Vin,max - Vout - Vsat) * (Vout + Vd)/(Vin,max - Vsat + Vd) * 1000/260 = \n=  16.8 * 7.2 / 24 * 1000/260 = 19.38 V*us => 22 uH coil (see datasheet p. 18)
 $Comp
@@ -476,16 +309,6 @@ Wire Wire Line
 	7650 3200 8200 3200
 Wire Wire Line
 	8750 3200 8750 2900
-Text Notes 4050 7300 2    50   ~ 0
-Alternative\nNot mounted
-Wire Notes Line
-	3100 6550 3100 7350
-Wire Notes Line
-	3100 7350 4100 7350
-Wire Notes Line
-	4100 7350 4100 6550
-Wire Notes Line
-	4100 6550 3100 6550
 $Comp
 L Device:C C809
 U 1 1 616AD78A
@@ -545,30 +368,6 @@ Connection ~ 8750 2500
 Wire Wire Line
 	7200 1900 7200 2500
 Connection ~ 7200 1900
-Text Notes 5200 5650 0    50   ~ 0
-ON/OFF Is pulled high by 45uA current source.\nThe controller is fully turned off when pulled below 0.8V =>\nRpd = U/I = 0.8V/45uA = 8.888kOhm
-$Comp
-L power:GND #PWR0805
-U 1 1 616CF895
-P 4800 5750
-AR Path="/614AB031/616CF895" Ref="#PWR0805"  Part="1" 
-AR Path="/614AE8DA/616CF895" Ref="#PWR01005"  Part="1" 
-F 0 "#PWR01005" H 4800 5500 50  0001 C CNN
-F 1 "GND" H 4805 5577 50  0000 C CNN
-F 2 "" H 4800 5750 50  0001 C CNN
-F 3 "" H 4800 5750 50  0001 C CNN
-	1    4800 5750
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4800 5350 4800 5250
-Connection ~ 4800 5250
-Wire Wire Line
-	4800 5250 5150 5250
-Wire Wire Line
-	4800 5750 4800 5650
-Wire Wire Line
-	3850 5950 3850 6250
 $Comp
 L Device:C C810
 U 1 1 617136B8
@@ -641,4 +440,55 @@ Wire Wire Line
 	6450 1200 9250 1200
 Wire Wire Line
 	2650 1200 6150 1200
+$Sheet
+S 2600 3800 1050 400 
+U 618915A5
+F0 "LED Power Enable" 50
+F1 "led_power_enable.sch" 50
+F2 "EN_3V3" I L 2600 4000 50 
+F3 "EN" O R 3650 4000 50 
+$EndSheet
+Wire Wire Line
+	4900 4000 3900 4000
+Text HLabel 2100 4000 0    50   Input ~ 0
+EN_3V3
+Wire Wire Line
+	2100 4000 2600 4000
+Wire Wire Line
+	4900 2500 4900 4000
+$Comp
+L power:GND #PWR0803
+U 1 1 618AFCCB
+P 3900 4500
+AR Path="/614AB031/618AFCCB" Ref="#PWR0803"  Part="1" 
+AR Path="/614AE8DA/618AFCCB" Ref="#PWR01104"  Part="1" 
+AR Path="/614AB031/618915A5/618AFCCB" Ref="#PWR?"  Part="1" 
+AR Path="/614AE8DA/618915A5/618AFCCB" Ref="#PWR?"  Part="1" 
+F 0 "#PWR01104" H 3900 4250 50  0001 C CNN
+F 1 "GND" H 3905 4327 50  0000 C CNN
+F 2 "" H 3900 4500 50  0001 C CNN
+F 3 "" H 3900 4500 50  0001 C CNN
+	1    3900 4500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3900 4500 3900 4400
+Wire Wire Line
+	3900 4100 3900 4000
+Connection ~ 3900 4000
+Wire Wire Line
+	3900 4000 3650 4000
+$Comp
+L Device:R R1003
+U 1 1 618C0BB7
+P 3900 4250
+AR Path="/614AE8DA/618C0BB7" Ref="R1003"  Part="1" 
+AR Path="/614AB031/618C0BB7" Ref="R803"  Part="1" 
+F 0 "R1003" H 3970 4296 50  0000 L CNN
+F 1 "10K" H 3970 4205 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 3830 4250 50  0001 C CNN
+F 3 "~" H 3900 4250 50  0001 C CNN
+	1    3900 4250
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
