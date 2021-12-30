@@ -1,0 +1,74 @@
+/dts-v1/;
+/plugin/;
+
+/*
+Legal pin,function combinations for each channel:
+  PWM0: 12,4(Alt0) 18,2(Alt5) 40,4(Alt0)            52,5(Alt1)
+  PWM1: 13,4(Alt0) 19,2(Alt5) 41,4(Alt0) 45,4(Alt0) 53,5(Alt1)
+*/
+
+/ {
+    compatible = "brcm,bcm2835";
+
+    fragment@0 {
+        target = <&gpio>;
+        __overlay__ {
+            pwm_pins: pwm_pins {
+                brcm,pins = <12 13>;
+                brcm,function = <4 4>; /* Alt0 */
+            };
+        };
+    };
+
+    fragment@1 {
+        target = <&pwm>;
+        __overlay__ {
+            pinctrl-names = "default";
+            pinctrl-0 = <&pwm_pins>;
+            assigned-clock-rates = <100000000>;
+            status = "okay";
+        };
+    };
+
+    fragment@2 {
+        target-path = "/";
+        __overlay__ {
+            ws281x-transmitter {
+                compatible = "leds,ws281x";
+                pwms = <&pwm 0 100>;
+            };
+        };
+    };
+
+    fragment@3 {
+        target-path = "/leds/led-act";
+        __overlay__ {
+            linux,default-trigger = "none";
+        };
+    };
+
+    fragment@4 {
+        target = <&leds>;
+        __overlay__ {
+            led-user-green {
+                label = "user:green";
+                gpios = <&gpio 24 0>;  // Active high
+                linux,default-trigger = "actpwr";
+            };
+            led-user-orange {
+                label = "user:orange";
+                gpios = <&gpio 25 0>;  // Active high
+            };
+            led-user-red {
+                label = "user:red";
+                gpios = <&gpio 26 0>;  // Active high
+                linux,default-trigger = "mmc0";
+            };
+            led-user-blue {
+                label = "user:blue";
+                gpios = <&gpio 27 0>;  // Active high
+                linux,default-trigger = "mmc1";
+            };
+        };
+    };
+};

@@ -1,2 +1,4 @@
 # R-Pi ID EEPROM binary
 *.eep
+# Device tree objects
+*.dtbo
