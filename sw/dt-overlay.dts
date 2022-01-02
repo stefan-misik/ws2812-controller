@@ -1,16 +1,11 @@
 /dts-v1/;
 /plugin/;
 
-/*
-Legal pin,function combinations for each channel:
-  PWM0: 12,4(Alt0) 18,2(Alt5) 40,4(Alt0)            52,5(Alt1)
-  PWM1: 13,4(Alt0) 19,2(Alt5) 41,4(Alt0) 45,4(Alt0) 53,5(Alt1)
-*/
-
 / {
     compatible = "brcm,bcm2835";
 
-    fragment@0 {
+/* WS281x PWM */
+    fragment@100 {
         target = <&gpio>;
         __overlay__ {
             pwm_pins: pwm_pins {
@@ -20,7 +15,7 @@ Legal pin,function combinations for each channel:
         };
     };
 
-    fragment@1 {
+    fragment@101 {
         target = <&pwm>;
         __overlay__ {
             pinctrl-names = "default";
@@ -30,7 +25,7 @@ Legal pin,function combinations for each channel:
         };
     };
 
-    fragment@2 {
+    fragment@102 {
         target-path = "/";
         __overlay__ {
             ws281x-transmitter {
@@ -40,14 +35,28 @@ Legal pin,function combinations for each channel:
         };
     };
 
-    fragment@3 {
+/* I2C RTC */
+    fragment@200 {
+        target = <&i2c1>;
+        __overlay__ {
+            #address-cells = <1>;
+            #size-cells = <0>;
+            ds3231@68 {
+                compatible = "maxim,ds3231";
+                reg = <0x68>;
+            };
+        };
+    };
+
+/* LEDs */
+    fragment@300 {
         target-path = "/leds/led-act";
         __overlay__ {
             linux,default-trigger = "none";
         };
     };
 
-    fragment@4 {
+    fragment@301 {
         target = <&leds>;
         __overlay__ {
             led-status-green {
