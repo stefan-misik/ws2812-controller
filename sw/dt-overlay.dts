@@ -39,7 +39,19 @@
     fragment@110 {
         target = <&spi>;
         __overlay__ {
+            /* needed to avoid dtc warning */
+            #address-cells = <1>;
+            #size-cells = <0>;
             status = "okay";
+
+            w25q32@1 {
+                compatible = "winbond,w25q32";
+                reg = <1>;    /* CE1 */
+                #address-cells = <1>;
+                #size-cells = <0>;
+                spi-max-frequency = <8000000>;
+                status = "okay";
+            };
         };
     };
 
