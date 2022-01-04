@@ -39,10 +39,23 @@
     fragment@110 {
         target = <&spi>;
         __overlay__ {
+            status = "okay";
+        };
+    };
+
+    fragment@111 {
+        target = <&spidev1>;
+        __overlay__ {
+            status = "disabled";
+        };
+    };
+
+    fragment@112 {
+        target = <&spi>;
+        __overlay__ {
             /* needed to avoid dtc warning */
             #address-cells = <1>;
             #size-cells = <0>;
-            status = "okay";
 
             w25q32@1 {
                 compatible = "winbond,w25q32";
