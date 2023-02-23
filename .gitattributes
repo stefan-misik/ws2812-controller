@@ -1,0 +1,4 @@
+*.kicad_pro text=auto
+*.kicad_sch text=auto
+*.kicad_pcb text=auto
+*.kicad_mod text=auto
