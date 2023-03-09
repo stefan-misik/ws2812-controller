@@ -4,6 +4,12 @@
 
   (paper "A4")
 
+  (title_block
+    (title "WS2812 Simple Controller")
+    (date "2023-03-09")
+    (company "Stefan Misik")
+  )
+
   (lib_symbols
   )
 
@@ -16,7 +22,7 @@
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid 7a20a017-f573-4170-8124-ccee8409dc3e)
   )
-  (hierarchical_label "EN" (shape input) (at 76.2 101.6 180) (fields_autoplaced)
+  (hierarchical_label "EN_3V3" (shape input) (at 76.2 101.6 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid 857b0f03-bcc8-4d17-a917-681adf32a216)
   )

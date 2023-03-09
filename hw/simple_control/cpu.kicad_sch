@@ -4,6 +4,13 @@
 
   (paper "A4")
 
+  (title_block
+    (title "WS2812 Simple Controller")
+    (date "2023-03-09")
+    (company "Stefan Misik")
+    (comment 1 "CPU ")
+  )
+
   (lib_symbols
     (symbol "my:Raspberry_Pi_0_2_3" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
       (property "Reference" "J" (at -17.78 31.75 0)
