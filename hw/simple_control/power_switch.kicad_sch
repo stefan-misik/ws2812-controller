@@ -1,0 +1,23 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid a2c9a61a-d8b5-499d-b3fd-98bed2e0ea17)
+
+  (paper "A4")
+
+  (lib_symbols
+  )
+
+
+  (hierarchical_label "VOUT" (shape output) (at 95.25 88.9 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 0eba074f-0f46-4fd6-92d4-2d094d5fb91a)
+  )
+  (hierarchical_label "VIN" (shape input) (at 76.2 88.9 180) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify right))
+    (uuid 7a20a017-f573-4170-8124-ccee8409dc3e)
+  )
+  (hierarchical_label "EN" (shape input) (at 76.2 101.6 180) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify right))
+    (uuid 857b0f03-bcc8-4d17-a917-681adf32a216)
+  )
+)

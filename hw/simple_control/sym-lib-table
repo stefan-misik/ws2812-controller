@@ -1,4 +1,6 @@
 (sym_lib_table
   (version 7)
   (lib (name "my")(type "KiCad")(uri "${KIPRJMOD}/../library/my.kicad_sym")(options "")(descr ""))
+  (lib (name "sn74ahct125d")(type "KiCad")(uri "${KIPRJMOD}/../library/sn74ahct125d.kicad_sym")(options "")(descr ""))
+  (lib (name "rp-pico")(type "KiCad")(uri "${KIPRJMOD}/../library/rp-pico/MCU_RaspberryPi_and_Boards.kicad_sym")(options "")(descr ""))
 )
