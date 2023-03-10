@@ -499,6 +499,30 @@
     [
       "3d4e7106-28aa-4335-9fa1-cc7761972854",
       "CPU"
+    ],
+    [
+      "90456e74-ff8a-472d-a77b-f456718516e1",
+      "Status LED 0"
+    ],
+    [
+      "6dfa3ccc-9562-40f4-be33-9e56e01c25ee",
+      "Status LED 1"
+    ],
+    [
+      "b2425a51-288c-487b-a5cd-94ea45276123",
+      "Status LED 2"
+    ],
+    [
+      "73523822-726f-497f-999a-d02a38eec383",
+      "Status LED 3"
+    ],
+    [
+      "ec5ccad3-0ff9-4021-a7ee-f796b94257d4",
+      "ID EEPROM"
+    ],
+    [
+      "61c69597-8f10-4e44-a7f4-2ec450623470",
+      "SPI SD Card"
     ]
   ],
   "text_variables": {}
