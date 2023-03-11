@@ -523,6 +523,18 @@
     [
       "61c69597-8f10-4e44-a7f4-2ec450623470",
       "SPI SD Card"
+    ],
+    [
+      "6747773a-6b0f-496e-9c5f-27f8648ed0f6",
+      "SPI Flash Module"
+    ],
+    [
+      "1f520e1a-dce5-4f24-9d95-76a56f34f12f",
+      "RPi RTC Module"
+    ],
+    [
+      "c06ffd3c-3a29-47cf-8ab0-9d9524dace5c",
+      "IIS Audio Module"
     ]
   ],
   "text_variables": {}
