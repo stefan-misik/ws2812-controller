@@ -489,14 +489,6 @@
       "LED Driver Output 1"
     ],
     [
-      "7b0badfa-5517-4c7f-bc64-b5f437d6adb6",
-      "Power Switch 0"
-    ],
-    [
-      "5b58960c-5d49-477c-a7dc-74344b960c2e",
-      "Power Switch 1"
-    ],
-    [
       "3d4e7106-28aa-4335-9fa1-cc7761972854",
       "CPU"
     ],
@@ -521,8 +513,8 @@
       "ID EEPROM"
     ],
     [
-      "61c69597-8f10-4e44-a7f4-2ec450623470",
-      "SPI SD Card"
+      "9f44955a-2f45-4885-929f-e4aae1dcd2f8",
+      "Filtered Button"
     ],
     [
       "6747773a-6b0f-496e-9c5f-27f8648ed0f6",
@@ -531,10 +523,6 @@
     [
       "1f520e1a-dce5-4f24-9d95-76a56f34f12f",
       "RPi RTC Module"
-    ],
-    [
-      "c06ffd3c-3a29-47cf-8ab0-9d9524dace5c",
-      "IIS Audio Module"
     ]
   ],
   "text_variables": {}

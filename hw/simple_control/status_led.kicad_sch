@@ -345,7 +345,7 @@
   (symbol (lib_id "Device:Q_NPN_BEC") (at 127 109.22 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 1a82edaa-7f67-407d-b2b6-e1de0564b6a4)
-    (property "Reference" "Q2" (at 131.8514 108.0516 0)
+    (property "Reference" "Q701" (at 131.8514 108.0516 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "BC817" (at 131.8514 110.363 0)
@@ -363,16 +363,16 @@
     (instances
       (project "simple_control"
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/3d4e7106-28aa-4335-9fa1-cc7761972854/90456e74-ff8a-472d-a77b-f456718516e1"
-          (reference "Q2") (unit 1)
+          (reference "Q701") (unit 1)
         )
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/3d4e7106-28aa-4335-9fa1-cc7761972854/6dfa3ccc-9562-40f4-be33-9e56e01c25ee"
-          (reference "Q3") (unit 1)
+          (reference "Q801") (unit 1)
         )
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/3d4e7106-28aa-4335-9fa1-cc7761972854/b2425a51-288c-487b-a5cd-94ea45276123"
-          (reference "Q4") (unit 1)
+          (reference "Q901") (unit 1)
         )
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/3d4e7106-28aa-4335-9fa1-cc7761972854/73523822-726f-497f-999a-d02a38eec383"
-          (reference "Q5") (unit 1)
+          (reference "Q1001") (unit 1)
         )
       )
       (project "control"
@@ -395,7 +395,7 @@
   (symbol (lib_id "Device:R") (at 129.54 95.25 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 2294dca1-2f68-4e0e-92de-29dc2657ec2f)
-    (property "Reference" "R23" (at 131.318 94.0816 0)
+    (property "Reference" "R701" (at 131.318 94.0816 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "1K" (at 131.318 96.393 0)
@@ -412,16 +412,16 @@
     (instances
       (project "simple_control"
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/3d4e7106-28aa-4335-9fa1-cc7761972854/90456e74-ff8a-472d-a77b-f456718516e1"
-          (reference "R23") (unit 1)
+          (reference "R701") (unit 1)
         )
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/3d4e7106-28aa-4335-9fa1-cc7761972854/6dfa3ccc-9562-40f4-be33-9e56e01c25ee"
-          (reference "R25") (unit 1)
+          (reference "R801") (unit 1)
         )
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/3d4e7106-28aa-4335-9fa1-cc7761972854/b2425a51-288c-487b-a5cd-94ea45276123"
-          (reference "R27") (unit 1)
+          (reference "R901") (unit 1)
         )
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/3d4e7106-28aa-4335-9fa1-cc7761972854/73523822-726f-497f-999a-d02a38eec383"
-          (reference "R29") (unit 1)
+          (reference "R1001") (unit 1)
         )
       )
       (project "control"
@@ -444,7 +444,7 @@
   (symbol (lib_id "Device:R") (at 114.3 109.22 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 325854d2-ea17-4270-802b-27a6a9fad056)
-    (property "Reference" "R22" (at 114.3 103.9622 90)
+    (property "Reference" "R702" (at 114.3 103.9622 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "10K" (at 114.3 106.2736 90)
@@ -461,16 +461,16 @@
     (instances
       (project "simple_control"
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/3d4e7106-28aa-4335-9fa1-cc7761972854/90456e74-ff8a-472d-a77b-f456718516e1"
-          (reference "R22") (unit 1)
+          (reference "R702") (unit 1)
         )
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/3d4e7106-28aa-4335-9fa1-cc7761972854/6dfa3ccc-9562-40f4-be33-9e56e01c25ee"
-          (reference "R24") (unit 1)
+          (reference "R802") (unit 1)
         )
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/3d4e7106-28aa-4335-9fa1-cc7761972854/b2425a51-288c-487b-a5cd-94ea45276123"
-          (reference "R26") (unit 1)
+          (reference "R902") (unit 1)
         )
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/3d4e7106-28aa-4335-9fa1-cc7761972854/73523822-726f-497f-999a-d02a38eec383"
-          (reference "R28") (unit 1)
+          (reference "R1002") (unit 1)
         )
       )
       (project "control"
@@ -493,7 +493,7 @@
   (symbol (lib_id "power:+5V") (at 129.54 76.2 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b2974ea7-37e5-47f8-8272-4a5012ab73e0)
-    (property "Reference" "#PWR021" (at 129.54 80.01 0)
+    (property "Reference" "#PWR0701" (at 129.54 80.01 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 129.921 71.8058 0)
@@ -509,16 +509,16 @@
     (instances
       (project "simple_control"
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/3d4e7106-28aa-4335-9fa1-cc7761972854/90456e74-ff8a-472d-a77b-f456718516e1"
-          (reference "#PWR021") (unit 1)
+          (reference "#PWR0701") (unit 1)
         )
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/3d4e7106-28aa-4335-9fa1-cc7761972854/6dfa3ccc-9562-40f4-be33-9e56e01c25ee"
-          (reference "#PWR023") (unit 1)
+          (reference "#PWR0801") (unit 1)
         )
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/3d4e7106-28aa-4335-9fa1-cc7761972854/b2425a51-288c-487b-a5cd-94ea45276123"
-          (reference "#PWR025") (unit 1)
+          (reference "#PWR0901") (unit 1)
         )
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/3d4e7106-28aa-4335-9fa1-cc7761972854/73523822-726f-497f-999a-d02a38eec383"
-          (reference "#PWR027") (unit 1)
+          (reference "#PWR01001") (unit 1)
         )
       )
       (project "control"
@@ -541,7 +541,7 @@
   (symbol (lib_id "power:GND") (at 129.54 118.11 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid e371c8f0-5404-477b-9cb7-9d9f42b517ad)
-    (property "Reference" "#PWR022" (at 129.54 124.46 0)
+    (property "Reference" "#PWR0702" (at 129.54 124.46 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 129.667 122.5042 0)
@@ -557,16 +557,16 @@
     (instances
       (project "simple_control"
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/3d4e7106-28aa-4335-9fa1-cc7761972854/90456e74-ff8a-472d-a77b-f456718516e1"
-          (reference "#PWR022") (unit 1)
+          (reference "#PWR0702") (unit 1)
         )
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/3d4e7106-28aa-4335-9fa1-cc7761972854/6dfa3ccc-9562-40f4-be33-9e56e01c25ee"
-          (reference "#PWR024") (unit 1)
+          (reference "#PWR0802") (unit 1)
         )
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/3d4e7106-28aa-4335-9fa1-cc7761972854/b2425a51-288c-487b-a5cd-94ea45276123"
-          (reference "#PWR026") (unit 1)
+          (reference "#PWR0902") (unit 1)
         )
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/3d4e7106-28aa-4335-9fa1-cc7761972854/73523822-726f-497f-999a-d02a38eec383"
-          (reference "#PWR028") (unit 1)
+          (reference "#PWR01002") (unit 1)
         )
       )
       (project "control"
@@ -589,7 +589,7 @@
   (symbol (lib_id "Device:LED") (at 129.54 82.55 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid f767f876-8b79-4bf3-b828-94c762c42c41)
-    (property "Reference" "D7" (at 132.5372 81.5594 90)
+    (property "Reference" "D701" (at 132.5372 81.5594 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "LED" (at 132.5372 83.8708 90)
@@ -606,16 +606,16 @@
     (instances
       (project "simple_control"
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/3d4e7106-28aa-4335-9fa1-cc7761972854/90456e74-ff8a-472d-a77b-f456718516e1"
-          (reference "D7") (unit 1)
+          (reference "D701") (unit 1)
         )
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/3d4e7106-28aa-4335-9fa1-cc7761972854/6dfa3ccc-9562-40f4-be33-9e56e01c25ee"
-          (reference "D8") (unit 1)
+          (reference "D801") (unit 1)
         )
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/3d4e7106-28aa-4335-9fa1-cc7761972854/b2425a51-288c-487b-a5cd-94ea45276123"
-          (reference "D9") (unit 1)
+          (reference "D901") (unit 1)
         )
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/3d4e7106-28aa-4335-9fa1-cc7761972854/73523822-726f-497f-999a-d02a38eec383"
-          (reference "D10") (unit 1)
+          (reference "D1001") (unit 1)
         )
       )
       (project "control"

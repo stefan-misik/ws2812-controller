@@ -597,6 +597,12 @@
     (uuid f4a579a7-adc7-4ca7-9dda-d25911a7bcc3)
   )
 
+  (text "Only fitted when\nsupply voltage is\ngreater than 10V,\nwhich it isn't in\nthis case."
+    (at 147.32 110.49 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid efd79efe-ca3a-40aa-970d-919acf62bf39)
+  )
+
   (hierarchical_label "VOUT" (shape output) (at 177.8 88.9 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid 2ccac0c5-dfb5-431d-b024-e6b13a8c60b3)
@@ -617,7 +623,7 @@
   (symbol (lib_id "Device:D_Zener") (at 148.59 93.98 270) (unit 1)
     (in_bom no) (on_board yes) (dnp yes) (fields_autoplaced)
     (uuid 04b5f11c-074e-4f33-a919-cf7ea6eefef8)
-    (property "Reference" "D2" (at 151.13 93.345 90)
+    (property "Reference" "D201" (at 151.13 93.345 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "D_Zener 10V" (at 151.13 95.885 90)
@@ -634,7 +640,7 @@
     (instances
       (project "simple_control"
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/9d1999f5-ea19-4a19-8c33-8b824114ea1f"
-          (reference "D2") (unit 1)
+          (reference "D201") (unit 1)
         )
       )
     )
@@ -643,7 +649,7 @@
   (symbol (lib_id "Device:C") (at 114.3 101.6 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 4d4ef33d-36b4-49bd-8018-59df3c49f875)
-    (property "Reference" "C1" (at 118.11 100.965 0)
+    (property "Reference" "C201" (at 118.11 100.965 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "470n" (at 118.11 103.505 0)
@@ -660,7 +666,7 @@
     (instances
       (project "simple_control"
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/9d1999f5-ea19-4a19-8c33-8b824114ea1f"
-          (reference "C1") (unit 1)
+          (reference "C201") (unit 1)
         )
       )
     )
@@ -669,7 +675,7 @@
   (symbol (lib_id "Device:C") (at 167.64 101.6 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 7e440ae0-8cd8-4864-9270-9cde3991b74b)
-    (property "Reference" "C2" (at 171.45 100.965 0)
+    (property "Reference" "C202" (at 171.45 100.965 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "470n" (at 171.45 103.505 0)
@@ -686,7 +692,7 @@
     (instances
       (project "simple_control"
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/9d1999f5-ea19-4a19-8c33-8b824114ea1f"
-          (reference "C2") (unit 1)
+          (reference "C202") (unit 1)
         )
       )
     )
@@ -695,7 +701,7 @@
   (symbol (lib_id "Device:R") (at 137.16 105.41 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid b9abe0fd-8645-4e9d-b407-4c1e87781866)
-    (property "Reference" "R1" (at 139.7 104.775 0)
+    (property "Reference" "R201" (at 139.7 104.775 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10K" (at 139.7 107.315 0)
@@ -712,7 +718,7 @@
     (instances
       (project "simple_control"
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/9d1999f5-ea19-4a19-8c33-8b824114ea1f"
-          (reference "R1") (unit 1)
+          (reference "R201") (unit 1)
         )
       )
     )
@@ -721,7 +727,7 @@
   (symbol (lib_id "my:Q_PMOS_SSSGDDDD") (at 137.16 91.44 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid e2663438-1d56-4fa9-ac29-2830797abce2)
-    (property "Reference" "Q1" (at 137.16 77.47 90)
+    (property "Reference" "Q201" (at 137.16 77.47 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "AOSP21357" (at 137.16 80.01 90)
@@ -744,7 +750,7 @@
     (instances
       (project "simple_control"
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/9d1999f5-ea19-4a19-8c33-8b824114ea1f"
-          (reference "Q1") (unit 1)
+          (reference "Q201") (unit 1)
         )
       )
     )
@@ -753,7 +759,7 @@
   (symbol (lib_id "Device:D_TVS") (at 101.6 101.6 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid e88626d1-8865-46ad-a361-c3ae61fca02b)
-    (property "Reference" "D1" (at 104.14 100.965 90)
+    (property "Reference" "D202" (at 104.14 100.965 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "D_TVS" (at 104.14 103.505 90)
@@ -770,7 +776,7 @@
     (instances
       (project "simple_control"
         (path "/063164e8-0d2a-492b-8a61-e4fa4fbf06a6/9d1999f5-ea19-4a19-8c33-8b824114ea1f"
-          (reference "D1") (unit 1)
+          (reference "D202") (unit 1)
         )
       )
     )
