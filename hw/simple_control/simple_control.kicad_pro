@@ -506,6 +506,14 @@
       "LED Driver Output 1"
     ],
     [
+      "ad9bd1c1-6315-4aa8-a66e-6b92f3b0a8c9",
+      "Filtered Button 0"
+    ],
+    [
+      "3f8beb8f-5d92-4b5c-b6ed-fc5ccf31bedf",
+      "Filtered Button 1"
+    ],
+    [
       "3d4e7106-28aa-4335-9fa1-cc7761972854",
       "CPU"
     ],
@@ -530,8 +538,12 @@
       "ID EEPROM"
     ],
     [
-      "9f44955a-2f45-4885-929f-e4aae1dcd2f8",
-      "Filtered Button"
+      "97621312-0150-488a-aea0-23425f1c0f4f",
+      "Filtered Button 2"
+    ],
+    [
+      "f10519f0-65c0-40be-a406-8aa448defcff",
+      "Keypad"
     ],
     [
       "6747773a-6b0f-496e-9c5f-27f8648ed0f6",
@@ -540,6 +552,18 @@
     [
       "1f520e1a-dce5-4f24-9d95-76a56f34f12f",
       "RPi RTC Module"
+    ],
+    [
+      "96a368b9-c987-4f53-8c81-f5a880c9c09f",
+      "Filtered Button 3"
+    ],
+    [
+      "56cde58d-0b48-4ddf-8152-e6e9f4633abf",
+      "Filtered Button 4"
+    ],
+    [
+      "56c23f00-5428-4b02-b610-16cb428e9916",
+      "Filtered Button 5"
     ]
   ],
   "text_variables": {}
