@@ -506,14 +506,6 @@
       "LED Driver Output 1"
     ],
     [
-      "ad9bd1c1-6315-4aa8-a66e-6b92f3b0a8c9",
-      "Filtered Button 0"
-    ],
-    [
-      "3f8beb8f-5d92-4b5c-b6ed-fc5ccf31bedf",
-      "Filtered Button 1"
-    ],
-    [
       "3d4e7106-28aa-4335-9fa1-cc7761972854",
       "CPU"
     ],
@@ -538,10 +530,6 @@
       "ID EEPROM"
     ],
     [
-      "97621312-0150-488a-aea0-23425f1c0f4f",
-      "Filtered Button 2"
-    ],
-    [
       "f10519f0-65c0-40be-a406-8aa448defcff",
       "Keypad"
     ],
@@ -555,15 +543,19 @@
     ],
     [
       "96a368b9-c987-4f53-8c81-f5a880c9c09f",
+      "Filtered Button 0"
+    ],
+    [
+      "7f8968f4-18d9-437e-bab2-c3435493b634",
+      "Filtered Button 1"
+    ],
+    [
+      "abb6d3d3-4ad8-41f1-9741-dd548c9eeba7",
+      "Filtered Button 2"
+    ],
+    [
+      "5d0864bc-9406-4cbb-ba8b-606d77f1c229",
       "Filtered Button 3"
-    ],
-    [
-      "56cde58d-0b48-4ddf-8152-e6e9f4633abf",
-      "Filtered Button 4"
-    ],
-    [
-      "56c23f00-5428-4b02-b610-16cb428e9916",
-      "Filtered Button 5"
     ]
   ],
   "text_variables": {}
