@@ -634,6 +634,12 @@
     (uuid e49ec257-a143-43d4-aa2a-3453f7252abb)
   )
 
+  (text "It should be possible to use pin-compatible \n74AHC125 from keypad buffer here"
+    (at 125.73 78.74 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid c8993e38-3d7e-4f7c-9139-53ba32a37b08)
+  )
+
   (hierarchical_label "~{EN}_3V3_0" (shape input) (at 41.91 92.71 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid 5de83616-755b-4928-8c6c-b4710b6cb209)
