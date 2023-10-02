@@ -4324,7 +4324,7 @@
         (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 32ceeeb7-8676-455f-b98f-51ebb63d7bec)
     )
-    (fp_text value "Micro_SD_Card" (at -0.05 8.1 90) (layer "F.Fab")
+    (fp_text value "MCSP-Q-08-A-SG-T/R" (at -0.05 8.1 90) (layer "F.Fab")
         (effects (font (size 1 1) (thickness 0.15)))
       (tstamp c0f58c6a-e336-4b96-991b-3058c12ee2e6)
     )

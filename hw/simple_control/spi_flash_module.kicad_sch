@@ -594,7 +594,7 @@
     (property "Reference" "J1301" (at 196.215 86.36 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "Micro_SD_Card" (at 196.215 88.9 0)
+    (property "Value" "MCSP-Q-08-A-SG-T/R" (at 196.215 88.9 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "my:micro_sd_card" (at 224.79 97.79 0)
