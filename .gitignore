@@ -28,9 +28,6 @@
 .code_review_properties
 *.launch
 
-# VS Code files
-.vscode/
-
 # Ignore doxygen outputs
 */doxygen/*.files
 

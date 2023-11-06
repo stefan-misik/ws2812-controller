@@ -1,2 +1,14 @@
 # Build directory
 build/
+
+# VS Code stuff
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/c_cpp_properties.json
+!.vscode/*.code-snippets
+# Local History for Visual Studio Code
+.history/
+
