@@ -19,3 +19,6 @@ pico_add_extra_outputs(${PROJ})
 pico_enable_stdio_usb(${PROJ} 1)
 pico_enable_stdio_uart(${PROJ} 0)
 
+# no_flash means the target is to run from RAM
+pico_set_binary_type(${PROJ} no_flash)
+

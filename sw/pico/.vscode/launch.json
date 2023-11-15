@@ -5,7 +5,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Cortex Debug",
+      "name": "Cortex Debug in RAM",
       "cwd": "${workspaceRoot}",
       "executable": "${command:cmake.launchTargetPath}",
       "request": "launch",
@@ -13,7 +13,7 @@
       "servertype": "openocd",
       "gdbPath": "arm-none-eabi-gdb",
       "serverArgs": [
-        
+        "-c", "adapter speed 30000"
       ],
       "device": "RP2040",
       "configFiles": [
@@ -26,6 +26,11 @@
       "postRestartCommands": [
           "break main",
           "continue"
+      ],
+      "postLaunchCommands": [
+          "stepi", // Must step before setting PC
+          "set $pc = _entry_point", // Prepare to jump to the Application's Reset Handler
+          "break main"
       ]
     }
   ]
