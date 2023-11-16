@@ -10,12 +10,27 @@ include($ENV{PICO_SDK_PATH}/external/pico_sdk_import.cmake)
 
 project(${PROJ} C CXX ASM)
 
-# initialize the Raspberry Pi Pico SDK
+# Initialize the Raspberry Pi Pico SDK
 pico_sdk_init()
 
-add_executable(${PROJ} main.cpp)
-target_link_libraries(${PROJ} pico_stdlib)
+add_executable(${PROJ}
+    main.cpp
+    status_led.cpp
+)
+# Make binary files
 pico_add_extra_outputs(${PROJ})
+
+# Libraries
+target_link_libraries(${PROJ}
+    pico_stdlib
+    hardware_pio
+    hardware_timer
+    hardware_clocks
+    hardware_pwm
+    pico_multicore
+)
+
+# Configure STD IO
 pico_enable_stdio_usb(${PROJ} 1)
 pico_enable_stdio_uart(${PROJ} 0)
 
