@@ -24,17 +24,15 @@ int main() {
         StatusLed::FromId(StatusLedId::LED_BLUE),
     };
 
+    std::uint8_t intensity[4] = {
+        0, 63, 127, 191
+    };
+
     while (true) {
-
         for (unsigned n = 0; n != 4; ++n) {
-            leds[n].setIntensity(255);
-            sleep_ms(250);
+            leds[n].setIntensity(intensity[n]++);
         }
-
-        for (unsigned n = 0; n != 4; ++n) {
-            leds[n].setIntensity(0);
-            sleep_ms(250);
-        }
+        sleep_ms(5);
     }
 
     return 0;
